@@ -5,17 +5,10 @@ const DriversList = () => {
   const [drivers, setDrivers] = useState([]);
 
   useEffect(() => {
-    fetch("http://ergast.com/api/f1/2024/drivers")
-      .then((response) => response.text())
-      .then((data) => {
-        const json = xmlParser.xml2js(data, { compact: true, spaces: 4 });
-        setDrivers(json.MRData.DriverTable.Driver);
-      })
-      .catch((error) =>
-        console.error("Erro ao obter dados dos pilotos:", error)
-      );
-  }, []);
-
+    
+    }, []);
+    
+    console.log(drivers);
   return (
     <main>
       {drivers.map((driver, index) => {

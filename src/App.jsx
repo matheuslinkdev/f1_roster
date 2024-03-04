@@ -1,14 +1,21 @@
-import './App.css'
-import DriversList from './Components/DriversList'
+import { Outlet, Router, Routes } from "react-router-dom";
+import "./App.css";
+import NavBar from "./Components/NavBar";
+
 
 function App() {
-  
-
   return (
     <>
-     <DriversList/>
+    <NavBar/>
+      <main>
+        <Router>
+          <Routes>
+            <Outlet />
+          </Routes>
+        </Router>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
