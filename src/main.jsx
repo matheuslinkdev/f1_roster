@@ -4,8 +4,7 @@ import './index.scss'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import HomePage from './Pages/HomePage/index.jsx'
 import DriversPage from './Pages/DriversPage/index.jsx'
-import CircuitsPage from './Pages/Circuits/index.jsx'
-import SchedulePage from './Pages/Schedule/index.jsx'
+import SchedulePage from './Pages/SchedulePage/index.jsx'
 import ConstructorsPage from './Pages/Constructors/index.jsx'
 import StandingsPage from './Pages/Standings/index.jsx'
 
@@ -21,10 +20,6 @@ const router = createBrowserRouter([
   {
     path: "/drivers",
     element: <DriversPage/>
-  },
-  {
-    path: "/circuits",
-    element: <CircuitsPage/>
   },
   {
     path: "/schedule",
