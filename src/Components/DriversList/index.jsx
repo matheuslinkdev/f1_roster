@@ -1,4 +1,16 @@
 import { Card, ListGroup } from "react-bootstrap";
+import ReactCountryFlag from "react-country-flag";
+import { countryNameToCodeMapping } from "../../Services/CountryFlags";
+
+const getCountryCode = (countryName) => {
+  for (const country in countryNameToCodeMapping) {
+    if (country === countryName) {
+      return countryNameToCodeMapping[country];
+    }
+  }
+  return null;
+};
+
 const DriversList = ({ drivers }) => {
   return (
     <main>
@@ -9,6 +21,9 @@ const DriversList = ({ drivers }) => {
           const colorMapping = {
             "5.2e+253": "52e253",
           };
+
+          const countryName = driver.country_code;
+          const countryCode = getCountryCode(countryName);
 
           const correctedColor =
             colorMapping[driver.team_colour] || driver.team_colour;
@@ -27,11 +42,18 @@ const DriversList = ({ drivers }) => {
                 src={driver.headshot_url}
               />
               <Card.Body>
-                <Card.Title style={{color: "#fff"}}>{driver.full_name}</Card.Title>
+                <Card.Title style={{ color: "#fff" }}>
+                  {driver.full_name}
+                </Card.Title>
               </Card.Body>
               <ListGroup className="list-group-flush">
                 <ListGroup.Item>Team: {driver.team_name}</ListGroup.Item>
                 <ListGroup.Item>Acronym: {driver.name_acronym}</ListGroup.Item>
+                <ListGroup.Item>
+                  {countryCode && (
+                    <ReactCountryFlag style={{fontSize: '3rem'}} countryCode={countryCode} svg />
+                  )}
+                </ListGroup.Item>
               </ListGroup>
             </Card>
           );
