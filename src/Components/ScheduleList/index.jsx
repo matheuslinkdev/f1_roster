@@ -1,16 +1,7 @@
 import { Accordion } from "react-bootstrap";
 
 import ReactCountryFlag from "react-country-flag";
-import { countryNameToCodeMapping } from "../../Services/CountryFlags";
-
-const getCountryCode = (countryName) => {
-  for (const country in countryNameToCodeMapping) {
-    if (country === countryName) {
-      return countryNameToCodeMapping[country];
-    }
-  }
-  return null;
-};
+import { countryNameToCodeMapping, getCountryCode } from "../../Services/CountryFlags";
 
 const ScheduleList = ({ schedule }) => {
   return (

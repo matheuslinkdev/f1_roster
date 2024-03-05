@@ -1,38 +1,12 @@
 import React from "react";
 import { Accordion, ListGroup } from "react-bootstrap";
 import ReactCountryFlag from "react-country-flag";
-import { countryNameToCodeMapping } from "../../Services/CountryFlags";
+import { countryNameToCodeMapping, getCountryCode } from "../../Services/CountryFlags";
+import { getOrdinalSuffix } from "../../Services/Sufix";
 
 const RaceResultsList = ({ raceResults }) => {
 
-  function getOrdinalSuffix(position) {
-    const lastTwoDigits = position % 100;
-
-    if (lastTwoDigits === 11 || lastTwoDigits === 12 || lastTwoDigits === 13) {
-      return "th";
-    }
-
-    const lastDigit = position % 10;
-
-    if (lastDigit === 1) {
-      return "st";
-    } else if (lastDigit === 2) {
-      return "nd";
-    } else if (lastDigit === 3) {
-      return "rd";
-    } else {
-      return "th";
-    }
-  }
-
-  const getCountryCode = (countryName) => {
-    for (const country in countryNameToCodeMapping) {
-      if (country === countryName) {
-        return countryNameToCodeMapping[country];
-      }
-    }
-    return null;
-  };
+ 
 
   return (
     <main>

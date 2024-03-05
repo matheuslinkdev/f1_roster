@@ -56,3 +56,13 @@ export const countryNameToCodeMapping = {
   Finnish: "FI",
   American: "US"
 };
+
+export const getCountryCode = (countryName) => {
+  for (const country in countryNameToCodeMapping) {
+    if (country === countryName) {
+      return countryNameToCodeMapping[country];
+    }
+  }
+  return null;
+};
+

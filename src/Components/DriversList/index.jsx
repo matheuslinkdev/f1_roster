@@ -1,15 +1,7 @@
 import { Card, ListGroup } from "react-bootstrap";
 import ReactCountryFlag from "react-country-flag";
-import { countryNameToCodeMapping } from "../../Services/CountryFlags";
+import { countryNameToCodeMapping, getCountryCode } from "../../Services/CountryFlags";
 
-const getCountryCode = (countryName) => {
-  for (const country in countryNameToCodeMapping) {
-    if (country === countryName) {
-      return countryNameToCodeMapping[country];
-    }
-  }
-  return null;
-};
 
 const DriversList = ({ drivers }) => {
   return (
