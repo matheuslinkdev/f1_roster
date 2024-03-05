@@ -38,4 +38,21 @@ export const countryNameToCodeMapping = {
   NED: "NL",
   MEX: "MX",
   THA: "TH",
+
+  //for the nationality
+  Dutch: "NL",
+  Mexican: "MX",
+  Spanish: "ES",
+  Monegasque: "MC",
+  British: "GB",
+  Australian: "AU",
+  Canadian: "CA",
+  Chinese: "CN",
+  Danish: "DK",
+  Japanese: "JP",
+  Thai: "TH",
+  German: "DE",
+  French: "FR",
+  Finnish: "FI",
+  American: "US"
 };

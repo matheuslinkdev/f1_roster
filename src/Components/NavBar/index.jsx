@@ -14,6 +14,7 @@ function NavBar() {
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/standings">Standings</Nav.Link>
+            <Nav.Link href="/results">Results</Nav.Link>
             <NavDropdown title="Infos" id="basic-nav-dropdown">
               <NavDropdown.Item href="/drivers">Drivers</NavDropdown.Item>
               <NavDropdown.Item href="/schedule">Schedule</NavDropdown.Item>

@@ -7,6 +7,7 @@ import DriversPage from './Pages/DriversPage/index.jsx'
 import SchedulePage from './Pages/SchedulePage/index.jsx'
 import ConstructorsPage from './Pages/Constructors/index.jsx'
 import StandingsPage from './Pages/Standings/index.jsx'
+import RaceResultsPage from './Pages/RaceResultsPage/index.jsx'
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/standings",
     element: <StandingsPage/>
+  },
+  {
+    path: "/results",
+    element: <RaceResultsPage/>
   },
 ]);
 
