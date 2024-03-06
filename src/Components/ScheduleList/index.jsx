@@ -11,26 +11,25 @@ const ScheduleList = ({ schedule }) => {
         const countryName = round.Circuit.Location.Country._text;
         const countryCode = getCountryCode(countryName);
 
-        // let raceTime = "TBC"
-        // let qualifyingTime = "TBC";
-
-        // if (round.Qualifying && round.Qualifying.Time._text) {
-        //   const utcQualifyingMoment = moment.utc(
-        //     round.Qualifying.Time._text,
-        //     "HH:mm:ss"
-        //   );
-        //   const localQualifyingMoment = utcQualifyingMoment.local(); // Converter para a hora local do usuário
-        //   qualifyingTime = localQualifyingMoment.format("MM-DD-YYYY HH:mm:ss");
-        // }
+  const utcDateToLocalFormat = (date, time) => {
+    const utcDatetimeMoment = moment.utc(
+      date + " " + time,
+      "YYYY-MM-DD HH:mm:ss"
+    );
+    const localDatetimeMoment = utcDatetimeMoment.local();
+    return localDatetimeMoment.format("YYYY-MM-DD, HH:mm:ss");
+  };
 
         return (
           <Accordion key={index}>
             <Accordion.Item eventKey="0">
               <Accordion.Header>
                 <h4> {round.RaceName._text}</h4>{" "}
-                <span>
-                  {round.FirstPractice.Date._text} - {round.Date._text}{" "}
-                </span>
+                <section>
+                  <span>
+                    {utcDateToLocalFormat(round.Date._text, round.Time._text)}
+                  </span>
+                </section>
                 {countryCode && (
                   <ReactCountryFlag
                     style={{
@@ -56,34 +55,53 @@ const ScheduleList = ({ schedule }) => {
                   <p>
                     First Pratice:{" "}
                     {round.FirstPractice
-                      ? round.FirstPractice.Date._text
+                      ? utcDateToLocalFormat(
+                          round.FirstPractice.Date._text,
+                          round.FirstPractice.Time._text
+                        )
                       : "TBC"}
                   </p>
                   <p>
                     Second Practice:{" "}
                     {round.SecondPractice
-                      ? round.SecondPractice.Date._text
+                      ? utcDateToLocalFormat(
+                          round.SecondPractice.Date._text,
+                          round.SecondPractice.Time._text
+                        )
                       : "TBC"}
                   </p>
                   {round.ThirdPractice ? (
-                    <p>Third Pratice: {round.ThirdPractice.Date._text}</p>
+                    <p>
+                      Third Pratice:{" "}
+                      {utcDateToLocalFormat(
+                        round.ThirdPractice.Date._text,
+                        round.ThirdPractice.Time._text
+                      )}
+                    </p>
                   ) : round.Sprint ? (
-                    <p>Sprint: {round.Sprint.Date._text}</p>
+                    <p>
+                      Sprint:{" "}
+                      {utcDateToLocalFormat(
+                        round.Sprint.Date._text,
+                        round.Sprint.Time._text
+                      )}
+                    </p>
                   ) : null}
-                  <section>
-                    <p>Qualifying: </p>
-                    <p>
-                      {round.Qualifying ? round.Qualifying.Date._text : "TBC"}
-                    </p>
-                    <p>
-                      {round.Qualifying ? round.Qualifying.Time._text : "TBC"}
-                    </p>
-                  </section>
                 </section>
                 <section>
-                  <p>Race: </p>
-                  <span>{round.Date._text}</span>
-                  <span>{round.Time._text}</span>
+                  <p>
+                    Qualifying:
+                    {round.Qualifying
+                      ? utcDateToLocalFormat(
+                          round.Qualifying.Date._text,
+                          round.Qualifying.Time._text
+                        )
+                      : "TBC"}
+                  </p>
+                  <p>
+                    Race: {" "}
+                    {utcDateToLocalFormat(round.Date._text, round.Time._text)}
+                  </p>
                 </section>
               </Accordion.Body>
             </Accordion.Item>
