@@ -1,6 +1,3 @@
-// api.js
-import  xmlParser from 'xml-js';
-
 const requestOptions = {
   method: "GET",
   redirect: "follow",

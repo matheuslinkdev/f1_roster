@@ -16,8 +16,6 @@ const SchedulePage = () => {
         });
     }, []);
 
-    console.log(schedule);
-
   return (
     <main>
       <NavBar /> SchedulePage

@@ -11,14 +11,14 @@ const ScheduleList = ({ schedule }) => {
         const countryName = round.Circuit.Location.Country._text;
         const countryCode = getCountryCode(countryName);
 
-  const utcDateToLocalFormat = (date, time) => {
-    const utcDatetimeMoment = moment.utc(
-      date + " " + time,
-      "YYYY-MM-DD HH:mm:ss"
-    );
-    const localDatetimeMoment = utcDatetimeMoment.local();
-    return localDatetimeMoment.format("YYYY-MM-DD, HH:mm:ss");
-  };
+        const utcDateToLocalFormat = (date, time) => {
+          const utcDatetimeMoment = moment.utc(
+            date + " " + time,
+            "YYYY-MM-DD HH:mm:ss"
+          );
+          const localDatetimeMoment = utcDatetimeMoment.local();
+          return localDatetimeMoment.format("YYYY-MM-DD, HH:mm:ss");
+        };
 
         return (
           <Accordion key={index}>
@@ -99,7 +99,7 @@ const ScheduleList = ({ schedule }) => {
                       : "TBC"}
                   </p>
                   <p>
-                    Race: {" "}
+                    Race:{" "}
                     {utcDateToLocalFormat(round.Date._text, round.Time._text)}
                   </p>
                 </section>
