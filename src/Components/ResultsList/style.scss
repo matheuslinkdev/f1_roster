@@ -1,0 +1,130 @@
+@import "../../styles/variables.scss";
+
+.accordion-button {
+  background-color: $black-800;
+  color: $red-50;
+  font-size: 1.4rem;
+  border-radius: 0;
+
+  .country-flag {
+    font-size: 2.5rem;
+    margin-left: 2dvw;
+  }
+
+  &:after {
+    border-radius: 50%;
+    background-color: $red-800;
+  }
+
+  &:not(.collapsed) {
+     background-image: linear-gradient(to right, $gray-800, $black-300, $gray-800);
+
+    color: $red-100;
+    box-shadow: none;
+  }
+}
+
+.finishing-list {
+  background-image: linear-gradient(to right, $gray-800, $black-300, $gray-800);
+}
+
+.driver-finishing-card {
+  border-radius: 0;
+  border: 1px solid transparent;
+  background-color: $transp-black;
+  backdrop-filter: blur(2px);
+  margin: 5px auto;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 70px;
+
+  width: 100%;
+  transition: ease-in 0.2s;
+
+  &:hover {
+    border: 1px solid $red-700;
+    scale: 1.005;
+  }
+
+  .driver-finishing-name,
+  .driver-finishing-constructor,
+  .driver-finishing-points,
+  .driver-finishing-status,
+  .finishing-constructor-name {
+    color: $red-50;
+    font-size: 1.1rem;
+    margin: 0 1dvw;
+  }
+
+  .driver-finishing-info {
+    display: flex;
+    position: absolute;
+    left: 10px;
+    top: 20px;
+
+    .driver-finishing-position {
+      color: $red-600;
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-top: -3px;
+    }
+
+    .driver-finishing-country {
+      font-size: 2rem;
+      margin-top: -2px;
+    }
+  }
+  .other-finishing-infos {
+    display: flex;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .driver-finishing-card {
+    height: 100px;
+
+    .driver-finishing-info {
+      display: flex;
+      flex-direction: column;
+      top: 10px;
+
+      .driver-finishing-position {
+        color: $red-50;
+        font-size: 1.2rem;
+        margin-top: 0;
+      }
+
+      .driver-finishing-country {
+        border-radius: 5px;
+        font-size: 1.5rem;
+      }
+
+      .driver-finishing-name {
+        font-size: 1.1rem;
+        margin-top: -20px;
+        margin-left: 0;
+      }
+    }
+
+    .driver-finishing-name,
+    .driver-finishing-constructor,
+    .driver-finishing-points,
+    .driver-finishing-status,
+    .finishing-constructor-name {
+      color: $red-50;
+      font-size: 1rem;
+      margin: 2px 1dvw;
+    }
+
+    .other-finishing-infos {
+      display: flex;
+      flex-direction: column;
+      text-align: end;
+      top: 10px;
+    }
+  }
+}

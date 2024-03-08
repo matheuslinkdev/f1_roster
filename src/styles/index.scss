@@ -8,8 +8,8 @@
 }
 
 body {
-  background-image: linear-gradient(to bottom, $black-800, $red-950 , $black-800);
-  background-attachment: scroll;
+  background-image: linear-gradient(to bottom, $black-300, $gray-400 , $black-300);
+  background-attachment: fixed;
 }
 
 .page-name {
@@ -18,3 +18,7 @@ body {
   font-size: 1.7rem;
   margin: 3dvh auto;
 }
+
+
+
+
