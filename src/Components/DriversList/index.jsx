@@ -1,55 +1,57 @@
 import { Card, ListGroup } from "react-bootstrap";
 import ReactCountryFlag from "react-country-flag";
-import { countryNameToCodeMapping, getCountryCode } from "../../Services/CountryFlags";
+import { getCountryCode } from "../../Services/CountryFlags";
 
+import "./style.scss";
 
 const DriversList = ({ drivers }) => {
   return (
     <main>
-      {drivers
-        .sort((a, b) => a.team_name.localeCompare(b.team_name))
-        .map((driver, index) => {
-          //One color have a problem in the API, i found this solution
-          const colorMapping = {
-            "5.2e+253": "52e253",
-          };
+      <ListGroup className="drivers-list">
+        {drivers
+          .sort((a, b) => a.team_name.localeCompare(b.team_name))
+          .map((driver, index) => {
+            //One color have a problem in the API, i found this solution
+            const colorMapping = {
+              "5.2e+253": "52e253",
+            };
 
-          const countryName = driver.country_code;
-          const countryCode = getCountryCode(countryName);
+            const countryName = driver.country_code;
+            const countryCode = getCountryCode(countryName);
 
-          const correctedColor =
-            colorMapping[driver.team_colour] || driver.team_colour;
+            const correctedColor =
+              colorMapping[driver.team_colour] || driver.team_colour;
 
-          return (
-            <Card
-              style={{
-                width: "15rem",
-                backgroundColor: `#${correctedColor}`,
-              }}
-              key={index}
-            >
-              <Card.Img
-                variant="top"
-                style={{ width: "5rem" }}
-                src={driver.headshot_url}
-              />
-              <Card.Body>
-                <Card.Title style={{ color: "#fff" }}>
-                  {driver.full_name}
-                </Card.Title>
-              </Card.Body>
-              <ListGroup className="list-group-flush">
-                <ListGroup.Item>Team: {driver.team_name}</ListGroup.Item>
-                <ListGroup.Item>Acronym: {driver.name_acronym}</ListGroup.Item>
-                <ListGroup.Item>
-                  {countryCode && (
-                    <ReactCountryFlag style={{fontSize: '3rem'}} countryCode={countryCode} svg />
-                  )}
-                </ListGroup.Item>
-              </ListGroup>
-            </Card>
-          );
-        })}
+            return (
+              <ListGroup.Item
+                key={index}
+                style={{
+                  borderColor: `#${correctedColor}`,
+                  borderWidth: "0px 0px 0px 2px",
+                }}
+                className="driver-card"
+              >
+                <img src={driver.headshot_url} className="driver-img" />
+                <section className="driver-info">
+                  <span style={{ color: `#${correctedColor}` }}>
+                    #{driver.driver_number}
+                  </span>
+                  <p>{driver.full_name}</p>
+                </section>
+
+                <section className="other-infos">
+                  <p>Team: {driver.team_name}</p>
+                  <p>Acronym: {driver.name_acronym}</p>
+                  <p>
+                    {countryCode && (
+                      <ReactCountryFlag className="country-flag" countryCode={countryCode} svg />
+                    )}
+                  </p>
+                </section>
+              </ListGroup.Item>
+            );
+          })}
+      </ListGroup>
     </main>
   );
 };
