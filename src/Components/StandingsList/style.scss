@@ -1,0 +1,96 @@
+@import "../../styles/variables.scss";
+
+.driver-standing-card {
+  border-radius: 0;
+  border: 1px solid $red-800;
+  background-color: $transp-black;
+  backdrop-filter: blur(2px);
+  margin: 10px auto;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 60px;
+
+  .driver-info {
+    display: flex;
+    position: absolute;
+    left: 10px;
+
+    .driver-standing-position {
+      color: $red-600;
+      font-size: 1.4rem;
+      margin-top: -3px;
+    }
+
+    .driver-country {
+      font-size: 1.8rem;
+    }
+  }
+
+  .driver-name,
+  .driver-constructor,
+  .driver-points,
+  .driver-wins {
+    color: $red-50;
+    font-size: 1.2rem;
+    margin: 0 1dvw;
+  }
+
+  .other-infos {
+    display: flex;
+    position: absolute;
+    right: 10px;
+  }
+
+  .standing-card-content {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 767px) {
+  .driver-standing-card {
+    height: 100px;
+
+    .driver-info {
+      display: flex;
+      flex-direction: column;
+      top: 5px;
+
+      .driver-standing-position {
+        color: $red-50;
+        font-size: 1.2rem;
+      }
+
+      .driver-country {
+        border-radius: 5px;
+        font-size: 1.5rem;
+      }
+
+      .driver-name {
+        font-size: 1.2rem;
+        margin-top: -15px;
+        margin-left: 0;
+      }
+    }
+
+    .driver-constructor,
+    .driver-points,
+    .driver-wins {
+      color: $red-50;
+      font-size: 1rem;
+      margin: 0 1dvw;
+    }
+
+    .other-infos {
+      display: flex;
+      flex-direction: column;
+      text-align: end;
+    }
+
+    .standing-card-content {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}

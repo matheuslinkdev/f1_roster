@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 * {
   font-family: "Nunito", sans-serif;
@@ -7,7 +7,14 @@
   box-sizing: border-box;
 }
 
-body{
-  background-image: linear-gradient(to bottom, $red-950, $red-900, $red-950);
-  background-attachment: fixed;
+body {
+  background-image: linear-gradient(to bottom, $black-800, $red-950 , $black-800);
+  background-attachment: scroll;
+}
+
+.page-name {
+  text-align: center;
+  color: $red-100;
+  font-size: 1.7rem;
+  margin: 3dvh auto;
 }
