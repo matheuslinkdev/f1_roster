@@ -7,6 +7,7 @@ import "./style.scss";
 const DriversList = ({ drivers }) => {
   return (
     <main>
+      <h1 className="page-name">Drivers: </h1>
       <ListGroup className="drivers-list">
         {drivers
           .sort((a, b) => a.team_name.localeCompare(b.team_name))

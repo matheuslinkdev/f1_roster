@@ -15,11 +15,9 @@ const DriversPage = () => {
     fetchData();
   }, []);
 
-  console.log(drivers);
-
   return (
     <main>
-      <NavBar /> DriversPage
+      <NavBar />
       <DriversList drivers={drivers} />
     </main>
   );
