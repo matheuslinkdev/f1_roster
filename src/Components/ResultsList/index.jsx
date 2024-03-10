@@ -8,8 +8,7 @@ const RaceResultsList = ({ raceResults }) => {
   return (
     <main>
       {raceResults.map((race, index) => {
-        const circuitCountryName =
-          race.RaceTable.Race.Circuit.Location.Country._text;
+        const circuitCountryName = race.RaceTable.Circuit ? race.RaceTable.Race.Circuit.Location.Country._text : "" ;
         const circuitCountryCode = getCountryCode(circuitCountryName);
         return (
           <Accordion key={index}>

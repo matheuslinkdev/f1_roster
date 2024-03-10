@@ -4,6 +4,8 @@ import ReactCountryFlag from "react-country-flag";
 import { getCountryCode } from "../../Services/CountryFlags";
 import moment from "moment";
 
+import './style.scss'
+
 const ScheduleList = ({ schedule }) => {
   return (
     <main>
@@ -17,7 +19,7 @@ const ScheduleList = ({ schedule }) => {
             "YYYY-MM-DD HH:mm:ss"
           );
           const localDatetimeMoment = utcDatetimeMoment.local();
-          return localDatetimeMoment.format("YYYY-MM-DD, HH:mm:ss");
+          return localDatetimeMoment.format("YYYY-MM-DD, HH:mm");
         };
 
         return (
