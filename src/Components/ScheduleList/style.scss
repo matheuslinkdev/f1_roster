@@ -1,1 +1,58 @@
 @import '../../styles/variables.scss';
+
+.accordion-button{
+    background-color: $black-800;
+}
+
+.accordion-item{
+    background-color: $transp-black;
+    height: 100%;
+}
+
+.grand-prix-name{
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.grand-prix-date{
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.race-infos{
+    background-color: $transp-black;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .circuit-infos{
+        span{
+            color: $red-100;
+        }
+        h5, p{
+            color: $red-50;
+        }
+    }
+    
+    .race-dates{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 20px;
+
+        section{
+            margin: 0 0 0 5dvw;
+        }
+
+        span{
+            color: $red-50;
+        }
+
+        p{
+            color: $red-100;
+        }
+    }
+}
+
+
+

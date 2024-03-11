@@ -10,7 +10,7 @@ const RaceResultsPage = () => {
     const fetchRaceResults = async () => {
       try {
         const results = [];
-        for (let i = 1; i <= raceResults.length + 25; i++) {
+        for (let i = 1; i <= raceResults.length + 25 ; i++) {
           const response = await fetch(
             `http://ergast.com/api/f1/current/${i}/results`
           );
@@ -28,7 +28,7 @@ const RaceResultsPage = () => {
     };
 
     fetchRaceResults();
-  });
+  }, []);
 
   return (
     <main>
