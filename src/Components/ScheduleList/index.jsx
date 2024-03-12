@@ -9,6 +9,7 @@ import "./style.scss";
 const ScheduleList = ({ schedule }) => {
   return (
     <main>
+      <h1 className="page-name">2024 Formula 1 Schedule: </h1>
       {schedule.map((round, index) => {
         const countryName = round.Circuit.Location.Country._text;
         const countryCode = getCountryCode(countryName);
@@ -29,23 +30,23 @@ const ScheduleList = ({ schedule }) => {
               style={{ backgroundColor: "transparent" }}
             >
               <Accordion.Header>
-                <h4 className="grand-prix-name"> {round.RaceName._text}</h4>{" "}
-                <section>
-                  {countryCode && (
-                    <ReactCountryFlag
-                      style={{
-                        fontSize: "2em",
-                        lineHeight: "2em",
-                        margin: "0 1dvw",
-                      }}
-                      countryCode={countryCode}
-                      svg
-                    />
-                  )}
-                  <span className="grand-prix-date">
-                    {utcDateToLocalFormat(round.Date._text, round.Time._text)}
-                  </span>
-                </section>
+                <article className="header-infos">
+                  <section>
+                    <h4 className="grand-prix-name"> {round.RaceName._text}</h4>{" "}
+                    {countryCode && (
+                      <ReactCountryFlag
+                        countryCode={countryCode}
+                        className="country-flag-img"
+                        svg
+                      />
+                    )}
+                  </section>
+                  <section>
+                    <span className="grand-prix-date">
+                      {utcDateToLocalFormat(round.Date._text, round.Time._text)}
+                    </span>
+                  </section>
+                </article>
               </Accordion.Header>
               <Accordion.Body
                 style={{ display: "flex" }}
@@ -96,13 +97,15 @@ const ScheduleList = ({ schedule }) => {
                           </p>
                         </>
                       ) : round.Sprint ? (
-                        <p>
-                          Sprint:{" "}
-                          {utcDateToLocalFormat(
-                            round.Sprint.Date._text,
-                            round.Sprint.Time._text
-                          )}
-                        </p>
+                        <>
+                          <span>Sprint: </span>
+                          <p>
+                            {utcDateToLocalFormat(
+                              round.Sprint.Date._text,
+                              round.Sprint.Time._text
+                            )}
+                          </p>
+                        </>
                       ) : null}
                     </div>
                   </section>

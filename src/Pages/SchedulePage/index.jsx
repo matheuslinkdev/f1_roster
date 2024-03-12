@@ -18,7 +18,7 @@ const SchedulePage = () => {
 
   return (
     <main>
-      <NavBar /> SchedulePage
+      <NavBar />
       <ScheduleList schedule={schedule}/>
     </main>
   );
