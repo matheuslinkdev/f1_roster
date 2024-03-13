@@ -1,25 +1,40 @@
 import { useEffect, useState } from "react";
 import NavBar from "../../Components/NavBar";
-import xmlParser from 'xml-js';
+import xmlParser from "xml-js";
 import ScheduleList from "../../Components/ScheduleList";
+import Loading from "../../Components/Loading"; // Importar o componente de loading
 
 const SchedulePage = () => {
+  const [schedule, setSchedule] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const [schedule, setSchedule] = useState([])
+  useEffect(() => {
+    const fetchSchedule = async () => {
+      try {
+        setIsLoading(true);
 
-    useEffect(() => {
-      fetch("http://ergast.com/api/f1/current")
-        .then((response) => response.text())
-        .then((data) => {
-          const json = xmlParser.xml2js(data, { compact: true, spaces: 4 });
-          setSchedule(json.MRData.RaceTable.Race);
-        });
-    }, []);
+        const response = await fetch("http://ergast.com/api/f1/current");
+        if (!response.ok) {
+          throw new Error("Erro ao obter dados do calendário de corridas");
+        }
+
+        const data = await response.text();
+        const json = xmlParser.xml2js(data, { compact: true, spaces: 4 });
+        setSchedule(json.MRData.RaceTable.Race);
+      } catch (error) {
+        console.error("Erro ao buscar dados do calendário de corridas:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchSchedule();
+  }, []);
 
   return (
     <main>
       <NavBar />
-      <ScheduleList schedule={schedule}/>
+      {isLoading ? <Loading /> : <ScheduleList schedule={schedule} />}
     </main>
   );
 };
