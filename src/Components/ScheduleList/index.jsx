@@ -1,5 +1,4 @@
 import { Accordion } from "react-bootstrap";
-
 import ReactCountryFlag from "react-country-flag";
 import { getCountryCode } from "../../Services/CountryFlags";
 import moment from "moment";
@@ -7,21 +6,21 @@ import moment from "moment";
 import "./style.scss";
 
 const ScheduleList = ({ schedule }) => {
+  const utcDateToLocalFormat = (date, time) => {
+    const utcDatetimeMoment = moment.utc(
+      date + " " + time,
+      "YYYY-MM-DD HH:mm:ss"
+    );
+    const localDatetimeMoment = utcDatetimeMoment.local();
+    return localDatetimeMoment.format("YYYY-MM-DD, HH:mm");
+  };
+
   return (
     <main>
       <h1 className="page-name">2024 Formula 1 Schedule: </h1>
       {schedule.map((round, index) => {
         const countryName = round.Circuit.Location.Country._text;
         const countryCode = getCountryCode(countryName);
-
-        const utcDateToLocalFormat = (date, time) => {
-          const utcDatetimeMoment = moment.utc(
-            date + " " + time,
-            "YYYY-MM-DD HH:mm:ss"
-          );
-          const localDatetimeMoment = utcDatetimeMoment.local();
-          return localDatetimeMoment.format("YYYY-MM-DD, HH:mm");
-        };
 
         return (
           <Accordion key={index}>
