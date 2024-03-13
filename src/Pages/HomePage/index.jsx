@@ -1,10 +1,11 @@
+import HomeTexts from "../../Components/HomeText";
 import NavBar from "../../Components/NavBar";
 
 function HomePage() {
   return (
     <main >
         <NavBar/>
-      HomePage
+      <HomeTexts/>
     </main>
   );
 }
