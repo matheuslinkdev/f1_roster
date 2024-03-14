@@ -23,6 +23,7 @@
   font-size: $link-font;
   transition: 0.2s;
   border-bottom: 1px solid transparent;
+  text-decoration: none;
 
   &:hover {
     color: $red-50;
@@ -54,12 +55,17 @@
 }
 
 .dropdown-link {
-  background-color: inherit;
-  border-top: 1px solid transparent;
-  border-bottom: 1px solid transparent;
-  font-size: $link-font;
 
-  color: $red-50;
+  a{
+
+    background-color: inherit;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    font-size: $link-font;
+  text-decoration: none;
+  
+    color: $red-50;
+  }
 
   &:hover {
     border-top: 1px solid $red-200;
