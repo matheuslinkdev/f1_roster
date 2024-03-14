@@ -15,16 +15,16 @@ const HomeContent = () => {
             </p>
             <ul>
                 <li>
-                    <Link to="/standings">Championship Standings</Link>
+                    <Link to="/f1_roster/standings">Championship Standings</Link>
                 </li>
                 <li>
-                    <Link to="/results">Race Results</Link>
+                    <Link to="/f1_roster/results">Race Results</Link>
                 </li>
                 <li>
-                    <Link to="/drivers">Drivers Info</Link>
+                    <Link to="/f1_roster/drivers">Drivers Info</Link>
                 </li>
                 <li>
-                    <Link to="/schedule">Season Schedule</Link>
+                    <Link to="/f1_roster/schedule">Season Schedule</Link>
                 </li>
             </ul>
 

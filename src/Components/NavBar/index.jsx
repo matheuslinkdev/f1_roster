@@ -9,7 +9,7 @@ import f1_roster_icon from "/public/icons/f1_roster-icon.png";
 
 function NavBar() {
   return (
-    <Navbar expand="lg"className="navbar">
+    <Navbar expand="lg" className="navbar">
       <Container>
         <img
           src={f1_roster_icon}
@@ -19,19 +19,38 @@ function NavBar() {
             maxHeight: "5rem",
           }}
         />
-        <Navbar.Brand href="/" className="brand">
+        <Navbar.Brand href="/f1_roster" className="brand">
           F1 Roster
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="links-nav">
-            <Nav.Link className="link" href="/">Home</Nav.Link>
-            <Nav.Link className="link" href="/standings">Standings</Nav.Link>
-            <Nav.Link className="link" href="/results">Results</Nav.Link>
+            <Nav.Link className="link" href="/f1_roster/">
+              Home
+            </Nav.Link>
+            <Nav.Link className="link" href="/f1_roster/standings">
+              Standings
+            </Nav.Link>
+            <Nav.Link className="link" href="/f1_roster/results">
+              Results
+            </Nav.Link>
             <NavDropdown title="Infos" id="basic-nav-dropdown">
-              <NavDropdown.Item className="dropdown-link" href="/drivers">Drivers</NavDropdown.Item>
-              <NavDropdown.Item className="dropdown-link" href="/schedule">Schedule</NavDropdown.Item>
-              <NavDropdown.Item className="dropdown-link" href="/constructors">
+              <NavDropdown.Item
+                className="dropdown-link"
+                href="/f1_roster/drivers"
+              >
+                Drivers
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                className="dropdown-link"
+                href="/f1_roster/schedule"
+              >
+                Schedule
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                className="dropdown-link"
+                href="/f1_roster/constructors"
+              >
                 Constructors
               </NavDropdown.Item>
             </NavDropdown>

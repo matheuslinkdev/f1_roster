@@ -11,7 +11,7 @@ import RaceResultsPage from './Pages/RaceResultsPage/index.jsx'
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/f1_roster/",
     element: <HomePage />,
   },
   {
@@ -19,24 +19,24 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: "/drivers",
-    element: <DriversPage/>
+    path: "/f1_roster/drivers",
+    element: <DriversPage />,
   },
   {
-    path: "/schedule",
-    element: <SchedulePage/>
+    path: "/f1_roster/schedule",
+    element: <SchedulePage />,
   },
   {
-    path: "/constructors",
-    element: <ConstructorsPage/>
+    path: "/f1_roster/constructors",
+    element: <ConstructorsPage />,
   },
   {
-    path: "/standings",
-    element: <StandingsPage/>
+    path: "/f1_roster/standings",
+    element: <StandingsPage />,
   },
   {
-    path: "/results",
-    element: <RaceResultsPage/>
+    path: "/f1_roster/results",
+    element: <RaceResultsPage />,
   },
 ]);
 
