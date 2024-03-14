@@ -1,11 +1,13 @@
-import HomeTexts from "../../Components/HomeText";
+import Footer from "../../Components/Footer";
+import HomeContent from "../../Components/HomeContent";
 import NavBar from "../../Components/NavBar";
 
 function HomePage() {
   return (
     <main >
         <NavBar/>
-      <HomeTexts/>
+      <HomeContent/>
+      <Footer/>
     </main>
   );
 }

@@ -1,7 +1,16 @@
 @import '../../styles/variables.scss';
 
 .home-texts {
-    margin: 15dvh 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5dvh 0;
+
+    img{
+        width: 250px;
+        margin: auto;
+    }
 
     .text-content {
         display: flex;

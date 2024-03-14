@@ -6,7 +6,7 @@ import "./style.scss";
 
 const DriversList = ({ drivers }) => {
   return (
-    <main>
+    <article>
       <h1 className="page-name">Drivers: </h1>
       <ListGroup className="drivers-list">
         {drivers
@@ -53,7 +53,7 @@ const DriversList = ({ drivers }) => {
             );
           })}
       </ListGroup>
-    </main>
+    </article>
   );
 };
 

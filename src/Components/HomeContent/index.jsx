@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom"
 import './style.scss'
 
-const HomeTexts = () => {
+import f1_roster_icon from '/public/icons/f1_roster-icon.png'
+
+const HomeContent = () => {
   return (
     <article className="home-texts">
+
+        <img src={f1_roster_icon} alt="" />
         <section className="text-content">
             <p>
                 Welcome to F1 Roster,
@@ -30,4 +34,4 @@ const HomeTexts = () => {
   )
 }
 
-export default HomeTexts
+export default HomeContent

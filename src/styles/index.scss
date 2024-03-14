@@ -10,6 +10,12 @@
 body {
   background-image: linear-gradient(to bottom, $black-300, $gray-400 , $black-300);
   background-attachment: fixed;
+  min-height: 100%;
+}
+
+main{
+  min-height: 100dvh;
+  position: relative;  
 }
 
 .page-name {
