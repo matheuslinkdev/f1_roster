@@ -38,6 +38,8 @@ const RaceResultsPage = () => {
     fetchRaceResults();
   }, []);
 
+console.log(raceResults);
+
   return (
     <main>
       <NavBar />
