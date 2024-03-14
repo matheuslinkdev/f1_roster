@@ -9,29 +9,31 @@ const RaceResultsPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchRaceResults = async () => {
-      try {
-        setIsLoading(true);
+  const fetchRaceResults = async () => {
+    try {
+      setIsLoading(true);
 
-        const results = [];
-        for (let i = 1; i <= 25; i++) {
+      const results = await Promise.all(
+        Array.from({ length: 25 }, async (_, i) => {
           const response = await fetch(
-            `https://ergast.com/api/f1/current/${i}/results`
+            `https://ergast.com/api/f1/current/${i + 1}/results`
           );
           if (!response.ok) {
-            throw new Error("Erro ao obter dados da corrida " + i);
+            throw new Error("Error fetching race data  " + (i + 1));
           }
           const data = await response.text();
           const json = xmlParser.xml2js(data, { compact: true, spaces: 4 });
-          results.push(json.MRData);
-        }
-        setRaceResults(results);
-      } catch (error) {
-        console.error("Erro ao buscar dados das corridas:", error);
-      } finally {
-        setIsLoading(false);  
-      }
-    };
+          return json.MRData;
+        })
+      );
+      setRaceResults(results);
+    } catch (error) {
+      console.error("Error fetching race results", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
 
     fetchRaceResults();
   }, []);
