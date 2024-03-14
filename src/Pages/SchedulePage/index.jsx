@@ -13,7 +13,7 @@ const SchedulePage = () => {
       try {
         setIsLoading(true);
 
-        const response = await fetch("http://ergast.com/api/f1/current");
+        const response = await fetch("https://ergast.com/api/f1/current");
         if (!response.ok) {
           throw new Error("Erro ao obter dados do calendário de corridas");
         }

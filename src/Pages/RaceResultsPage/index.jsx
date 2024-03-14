@@ -16,7 +16,7 @@ const RaceResultsPage = () => {
         const results = [];
         for (let i = 1; i <= 25; i++) {
           const response = await fetch(
-            `http://ergast.com/api/f1/current/${i}/results`
+            `https://ergast.com/api/f1/current/${i}/results`
           );
           if (!response.ok) {
             throw new Error("Erro ao obter dados da corrida " + i);

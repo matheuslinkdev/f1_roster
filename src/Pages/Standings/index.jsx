@@ -13,7 +13,7 @@ const StandingsPage = () => {
       try {
         setIsLoading(true);
         const response = await fetch(
-          "http://ergast.com/api/f1/current/driverStandings"
+          "https://ergast.com/api/f1/current/driverStandings"
         );
         if (!response.ok) {
           throw new Error("Erro ao obter dados da classificação dos pilotos");
