@@ -11,7 +11,7 @@ import RaceResultsPage from './Pages/RaceResultsPage/index.jsx'
 
 const router = createBrowserRouter([
   {
-    path: "/f1_roster/",
+    path: "/f1_roster",
     element: <HomePage />,
   },
   {
