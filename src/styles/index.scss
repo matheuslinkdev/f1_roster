@@ -8,14 +8,19 @@
 }
 
 body {
-  background-image: linear-gradient(to bottom, $black-300, $gray-400 , $black-300);
+  background-image: linear-gradient(
+    to bottom,
+    $black-300,
+    $gray-400,
+    $black-300
+  );
   background-attachment: fixed;
   min-height: 100%;
 }
 
-main{
+main {
   min-height: 100dvh;
-  position: relative;  
+  position: relative;
 }
 
 .page-name {
@@ -25,12 +30,9 @@ main{
   margin: 3dvh auto;
 }
 
-.accordion-item{
-  margin: 5px;
+.accordion-item {
+  background-color: $transp-black;
+  height: 100%;
+  width: 90%;
+  margin: 5px auto;
 }
-
-
-
-
-
-
