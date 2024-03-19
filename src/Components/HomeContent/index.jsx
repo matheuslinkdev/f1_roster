@@ -7,7 +7,7 @@ const HomeContent = () => {
   return (
     <article className="home-texts">
 
-        <img src={f1_roster_icon} alt="" />
+        <img src={f1_roster_icon} alt="f1 roster icon" />
         <section className="text-content">
             <p>
                 Welcome to F1 Roster,
