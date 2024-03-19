@@ -10,6 +10,7 @@ function HomePage() {
         <HomeContent />
         <Footer/>
       </main>
+      <Footer />
     </>
   );
 }
