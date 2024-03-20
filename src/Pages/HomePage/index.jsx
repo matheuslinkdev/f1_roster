@@ -1,6 +1,6 @@
 import HomeContent from "../../Components/HomeContent";
 import NavBar from "../../Components/NavBar";
-import Footer from './../../Components/Footer/index';
+import Footer from "./../../Components/Footer/index";
 
 function HomePage() {
   return (
@@ -8,9 +8,8 @@ function HomePage() {
       <main>
         <NavBar />
         <HomeContent />
-        <Footer/>
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 }
