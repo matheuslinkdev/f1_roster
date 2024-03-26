@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import './style.scss'
+import './style.module.scss'
 
 import f1_roster_icon from '/public/icons/f1_roster-icon.png'
 

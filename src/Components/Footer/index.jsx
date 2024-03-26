@@ -1,5 +1,5 @@
 import f1_roster_icon from "/public/icons/f1_roster-icon.png";
-import "./style.scss";
+import "./style.module.scss";
 
 const Footer = () => {
   return (

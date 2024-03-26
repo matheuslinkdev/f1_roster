@@ -2,7 +2,7 @@ import { Accordion, ListGroup } from "react-bootstrap";
 import ReactCountryFlag from "react-country-flag";
 import { getCountryCode } from "../../Services/CountryFlags";
 import { getOrdinalSuffix } from "../../Services/Sufix";
-import "./style.scss";
+import "./style.module.scss";
 
 const RaceResultsList = ({ raceResults }) => {
   const formatFinishingStatus = (result) => {

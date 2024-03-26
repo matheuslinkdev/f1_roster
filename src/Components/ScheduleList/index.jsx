@@ -3,7 +3,7 @@ import ReactCountryFlag from "react-country-flag";
 import { getCountryCode } from "../../Services/CountryFlags";
 import moment from "moment";
 
-import "./style.scss";
+import "./style.module.scss";
 
 const ScheduleList = ({ schedule }) => {
   const utcDateToLocalFormat = (date, time) => {

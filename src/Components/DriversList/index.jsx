@@ -2,7 +2,7 @@ import { Card, ListGroup } from "react-bootstrap";
 import ReactCountryFlag from "react-country-flag";
 import { getCountryCode } from "../../Services/CountryFlags";
 
-import "./style.scss";
+import "./style.module.scss";
 
 const DriversList = ({ drivers }) => {
   return (

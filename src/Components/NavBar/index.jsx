@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./style.scss";
+import "./style.module.scss";
 
 import f1_roster_icon from "/public/icons/f1_roster-icon.png";
 import { Link } from "react-router-dom";

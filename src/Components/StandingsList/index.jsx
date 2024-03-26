@@ -2,7 +2,7 @@ import { Card} from "react-bootstrap";
 import { getCountryCode } from "../../Services/CountryFlags";
 import ReactCountryFlag from "react-country-flag";
 import { getOrdinalSuffix } from "../../Services/Sufix";
-import "./style.scss";
+import "./style.module.scss";
 
 const DriverStandingsList = ({ driverStandings }) => {
   return (
