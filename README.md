@@ -1,8 +1,7 @@
-# React + Vite
+# F1_roster
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## A page for the users search about the data of the current Formula 1 season
 
-Currently, two official plugins are available:
+### The app doesn't have too many data due to api limitations
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### I'll start a refactoring of this project, this time using next due all of his benefits, it will help a lot
