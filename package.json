@@ -1,5 +1,5 @@
 {
-  "homepage": "https://MthsLnk-gthb.github.io/f1_roster",
+  "homepage": "https://matheuslinkdev.github.io/f1_roster",
   "name": "f1_roster",
   "private": true,
   "version": "0.0.0",
@@ -21,6 +21,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "react-router-dom": "^6.22.2",
+    "vercel": "^33.7.0",
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
