@@ -1,0 +1,76 @@
+@import "../../styles/variables.scss";
+
+.navbar {
+  background-color: $red-800;
+  backdrop-filter: blur(2px);
+  z-index: 1;
+  border-bottom: 1px solid $red-100;
+}
+
+.brand {
+  color: $red-100;
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: 0.3s;
+
+  &:hover {
+    color: $red-50;
+  }
+}
+
+.link {
+  color: $red-100;
+  font-size: $link-font;
+  transition: 0.2s;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+
+  &:hover {
+    color: $red-50;
+    border-bottom: 1px solid $red-100;
+  }
+}
+
+#basic-nav-dropdown {
+  &:focus {
+    color: $red-100;
+  }
+}
+
+#basic-nav-dropdown {
+  font-size: $link-font;
+  color: $red-50;
+  transition: 0.3s;
+
+  &:hover {
+    color: $red-100;
+  }
+}
+
+.dropdown-menu.show {
+  background-color: $red-800;
+  border: 1px solid $red-100;
+
+  margin-left: -1dvw;
+}
+
+.dropdown-link {
+
+  a{
+
+    background-color: inherit;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    font-size: $link-font;
+  text-decoration: none;
+  
+    color: $red-50;
+  }
+
+  &:hover {
+    border-top: 1px solid $red-200;
+    border-bottom: 1px solid $red-200;
+    background-color: inherit;
+    color: $red-100;
+  }
+}
