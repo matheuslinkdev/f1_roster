@@ -32,7 +32,7 @@ const RaceResultsList = ({ raceResults }) => {
         return (
           <Accordion key={index}>
             {RaceName && (
-              <Accordion.Item eventKey="0">
+              <Accordion.Item eventKey="0" className="accordion-item">
                 <Accordion.Header>
                   {RaceName._text}
                   <ReactCountryFlag
@@ -43,13 +43,14 @@ const RaceResultsList = ({ raceResults }) => {
                 </Accordion.Header>
                 <Accordion.Body className="finishing-list">
                   <ListGroup>
+
                     {results.map((result, resultIndex) => {
                       const { Nationality, GivenName, FamilyName } =
                         result.Driver;
                       const countryCode = getCountryCode(Nationality._text);
 
                       return (
-                        <ListGroup.Item
+                        <li
                           key={resultIndex}
                           style={{ display: "flex" }}
                           className="driver-finishing-card"
@@ -84,7 +85,7 @@ const RaceResultsList = ({ raceResults }) => {
                               </p>
                             </section>
                           </article>
-                        </ListGroup.Item>
+                        </li>
                       );
                     })}
                   </ListGroup>

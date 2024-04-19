@@ -17,8 +17,10 @@ export default function NavBar() {
         <Image
           src="https://i.postimg.cc/SRNkp0rT/f1-roster-icon.png"
           alt="f1 roster icon"
-          width={70}
-          height={70}
+          width={170}
+          height={170}
+          layout="responsive"
+          className="navbar-icon"
         />
         <Navbar.Brand href="/" className="brand">
           F1 Roster

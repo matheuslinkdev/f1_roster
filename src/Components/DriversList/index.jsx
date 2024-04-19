@@ -3,6 +3,7 @@ import ReactCountryFlag from "react-country-flag";
 import { getCountryCode } from "../../Services/CountryFlags";
 
 import "./style.scss";
+import Image from "next/image";
 
 const DriversList = ({ drivers }) => {
   return (
@@ -32,7 +33,7 @@ const DriversList = ({ drivers }) => {
                 }}
                 className="driver-card"
               >
-                <img src={driver.headshot_url} className="driver-img" />
+                <Image src={driver.headshot_url} className="driver-img" alt={`${driver.full_name} photo`} width={93} height={93}/>
                 <section className="driver-info">
                   <span style={{ color: `#${correctedColor}` }}>
                     #{driver.driver_number}
@@ -45,7 +46,7 @@ const DriversList = ({ drivers }) => {
                   <p>Acronym: {driver.name_acronym}</p>
                   <p>
                     {countryCode && (
-                      <ReactCountryFlag className="country-flag" countryCode={countryCode} svg />
+                      <ReactCountryFlag className="country-flag" countryCode={countryCode} alt="Country Icon" svg/>
                     )}
                   </p>
                 </section>

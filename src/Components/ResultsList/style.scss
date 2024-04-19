@@ -1,7 +1,6 @@
 @import "../../styles/variables.scss";
 
 .accordion-button {
-  background-color: $black-800;
   color: $red-50;
   font-size: 1.2rem;
   border-radius: 0;
@@ -17,7 +16,7 @@
   }
 
   &:not(.collapsed) {
-     background-color: $transp-black;
+
 
     color: $red-100;
     box-shadow: none;
@@ -25,7 +24,8 @@
 }
 
 .finishing-list {
-  background-image: linear-gradient(to right, $gray-800, $black-300, $gray-800);
+ 
+  color: #fff;
 }
 
 .driver-finishing-card {

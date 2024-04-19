@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useState } from "react";
 import NavBar from "../../Components/NavBar";
 import xmlParser from "xml-js";
@@ -37,8 +39,6 @@ const StandingsPage = () => {
   }, []);
 
   return (
-    <>
-      <NavBar />
       <main>
         {isLoading ? (
           <Loading />
@@ -46,7 +46,6 @@ const StandingsPage = () => {
           <DriverStandingsList driverStandings={driverStandings} />
         )}
       </main>
-    </>
   );
 };
 

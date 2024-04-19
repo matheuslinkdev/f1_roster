@@ -17,7 +17,6 @@ const ScheduleList = ({ schedule }) => {
 
   return (
     <main>
-      <h1 className="page-name">2024 Formula 1 Schedule: </h1>
       {schedule.map((round, index) => {
         const countryName = round.Circuit.Location.Country._text;
         const countryCode = getCountryCode(countryName);
@@ -26,7 +25,7 @@ const ScheduleList = ({ schedule }) => {
           <Accordion key={index}>
             <Accordion.Item
               eventKey="0"
-              style={{ backgroundColor: "transparent" }}
+              style={{ backgroundColor: "transparent", width: "95dvw", margin: "5px auto" }}
             >
               <Accordion.Header>
                 <article className="header-infos">

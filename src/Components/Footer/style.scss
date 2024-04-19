@@ -9,15 +9,6 @@ footer {
   gap: 15px;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  bottom: 0;
-
-  .footer-logo {
-    img {
-      width: 60px;
-      height: 60px;
-    }
-  }
 
   .link-list {
     list-style: none;

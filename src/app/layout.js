@@ -1,3 +1,4 @@
+import Footer from "@/Components/Footer";
 import NavBar from "@/Components/NavBar";
 
 export const metadata = {
@@ -8,7 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body style={{backgroundImage: "linear-gradient(to right, #606060, #353535, #606060)"}}>
         <NavBar />
         {children}
       </body>

@@ -1,12 +1,12 @@
-import Link from "next/link";
+import Footer from "@/Components/Footer";
+import HomeContent from "@/Components/HomeContent";
+import '@/styles/index.scss'
 
 export default function Home() {
   return (
     <main>
-      <Link href="/driver_standings">Driver Standings</Link>
-      <Link href="/schedule">Schedule</Link>
-      <Link href="/results">Results</Link>
-      <Link href="/drivers">Drivers</Link>
+      <HomeContent/>
+      <Footer/>
     </main>
   );
 }
