@@ -1,5 +1,6 @@
 import Footer from "@/Components/Footer";
 import NavBar from "@/Components/NavBar";
+import { Providers } from "./providers";
 
 export const metadata = {
   title: "F1 Roster",
@@ -9,10 +10,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Providers>
       <body style={{backgroundImage: "linear-gradient(to right, #606060, #353535, #606060)"}}>
         <NavBar />
         {children}
       </body>
+      </Providers>
     </html>
   );
 }

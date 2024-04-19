@@ -27,14 +27,8 @@ main {
   margin: 3dvh auto !important;
 }
 
-.accordion-item {
-  background-color: $transp-black !important;
-  height: 100%;
-  width: 90%;
-  margin: 5px auto;
-  color: #fff;
+
+li{
+  list-style: none;
 }
 
-.accordion-button[aria-expanded="true"] {
-  background-color: red;
-}
