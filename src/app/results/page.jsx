@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useState, useMemo } from "react";
 import xmlParser from "xml-js";
 import RaceResultsList from "../../Components/ResultsList";
@@ -46,7 +48,6 @@ const RaceResultsPage = () => {
 
   return (
     <main>
-      <NavBar />
       {isLoading ? (
         <Loading />
       ) : (

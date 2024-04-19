@@ -1,3 +1,5 @@
+"use client"
+
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -5,51 +7,49 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.scss";
 
-import f1_roster_icon from "/public/icons/f1_roster-icon.png";
-import { Link } from "react-router-dom";
+import Link  from 'next/link';
+import Image from "next/image";
 
-function NavBar() {
+export default function NavBar() {
   return (
     <Navbar expand="lg" className="navbar">
       <Container>
-        <img
-          src={f1_roster_icon}
+        <Image
+          src="https://i.postimg.cc/SRNkp0rT/f1-roster-icon.png"
           alt="f1 roster icon"
-          style={{
-            maxWidth: "5rem",
-            maxHeight: "5rem",
-          }}
+          width={70}
+          height={70}
         />
-        <Navbar.Brand href="/f1_roster/" className="brand">
+        <Navbar.Brand href="/" className="brand">
           F1 Roster
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="links-nav">
             <Nav.Link>
-              <Link to="/f1_roster/" className="link">
+              <Link href="/" className="link">
                 Home
               </Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/f1_roster/standings" className="link">
+              <Link href="/standings" className="link">
                 Standings
               </Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/f1_roster/results" className="link">
+              <Link href="/results" className="link">
                 Results
               </Link>
             </Nav.Link>
             <NavDropdown title="Infos" id="basic-nav-dropdown">
               <NavDropdown.Item className="dropdown-link">
-                <Link to="/f1_roster/drivers">Drivers</Link>
+                <Link href="/drivers">Drivers</Link>
               </NavDropdown.Item>
               <NavDropdown.Item className="dropdown-link">
-                <Link to="/f1_roster/schedule">Schedule</Link>
+                <Link href="/schedule">Schedule</Link>
               </NavDropdown.Item>
               <NavDropdown.Item className="dropdown-link">
-                <Link to="/f1_roster/constructors">Constructors</Link>
+                <Link href="/constructors">Constructors</Link>
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
@@ -59,4 +59,3 @@ function NavBar() {
   );
 }
 
-export default NavBar;

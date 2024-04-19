@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useState } from "react";
 import NavBar from "../../Components/NavBar";
 import { fetchDrivers } from "../../Services/Api";
@@ -26,7 +28,6 @@ const DriversPage = () => {
 
   return (
     <main>
-      <NavBar />
       {isLoading ? <Loading /> : <DriversList drivers={drivers} />}
     </main>
   );
