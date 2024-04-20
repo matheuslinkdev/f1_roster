@@ -37,6 +37,7 @@ const RaceResultsList = ({ raceResults }) => {
                 w="95dvw"
                 m="5px auto"
                 border="1px solid #202020"
+                bg="#353535"
                 borderRadius={2}
                 overflow="hidden"
               >

@@ -27,6 +27,7 @@ const ScheduleList = ({ schedule }) => {
               w="95dvw"
               m="5px auto"
               border="1px solid #202020"
+              bg="#353535"
               borderRadius={2}
               overflow="hidden"
             >
@@ -42,7 +43,7 @@ const ScheduleList = ({ schedule }) => {
                       />
                     )}
                   </section>
-                    <AccordionIcon position="absolute" right="3dvw"/>
+                  <AccordionIcon position="absolute" right="3dvw" />
                   <section>
                     <span className="grand-prix-date">
                       {utcDateToLocalFormat(round.Date._text, round.Time._text)}
