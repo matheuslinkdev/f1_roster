@@ -8,13 +8,6 @@
 }
 
 body {
-  background-image: linear-gradient(
-    to bottom,
-    $black-300,
-    $gray-400,
-    $black-300
-  );
-  background-attachment: fixed;
   min-height: 100dvh;
   display: flex;
     flex-direction: column;
@@ -22,19 +15,20 @@ body {
 
 main {
   position: relative;
-  min-height: 110dvh;
+  min-height: 100%;
 }
 
-.page-name {
-  text-align: center;
+.page-name  {
+  display: flex;
+  justify-content: center;
+  text-align: center !important;
   color: $red-100;
-  font-size: 1.5rem;
-  margin: 3dvh auto;
+  font-size: 1.5rem !important;
+  margin: 3dvh auto !important;
 }
 
-.accordion-item {
-  background-color: $transp-black;
-  height: 100%;
-  width: 90%;
-  margin: 5px auto;
+
+li{
+  list-style: none;
 }
+

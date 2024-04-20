@@ -1,11 +1,11 @@
-import f1_roster_icon from "/public/icons/f1_roster-icon.png";
 import "./style.scss";
+import Image from "next/image";
 
 const Footer = () => {
   return (
     <footer>
       <section className="footer-logo">
-        <img src={f1_roster_icon} alt="" />
+        <Image src="https://i.postimg.cc/SRNkp0rT/f1-roster-icon.png" alt="f1 roster icon" width={50} height={50}/>
       </section>
       <ul className="link-list">
         <li>

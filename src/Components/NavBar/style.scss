@@ -5,6 +5,14 @@
   backdrop-filter: blur(2px);
   z-index: 1;
   border-bottom: 1px solid $red-100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .navbar-icon{
+    max-width: 90px;
+    max-height: 90px;
+  }
 }
 
 .brand {

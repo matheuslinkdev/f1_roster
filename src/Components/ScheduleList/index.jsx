@@ -1,9 +1,9 @@
-import { Accordion } from "react-bootstrap";
 import ReactCountryFlag from "react-country-flag";
 import { getCountryCode } from "../../Services/CountryFlags";
 import moment from "moment";
 
 import "./style.scss";
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Flex } from "@chakra-ui/react";
 
 const ScheduleList = ({ schedule }) => {
   const utcDateToLocalFormat = (date, time) => {
@@ -17,19 +17,22 @@ const ScheduleList = ({ schedule }) => {
 
   return (
     <main>
-      <h1 className="page-name">2024 Formula 1 Schedule: </h1>
       {schedule.map((round, index) => {
         const countryName = round.Circuit.Location.Country._text;
         const countryCode = getCountryCode(countryName);
 
         return (
-          <Accordion key={index}>
-            <Accordion.Item
-              eventKey="0"
-              style={{ backgroundColor: "transparent" }}
+          <Accordion key={index} allowToggle>
+            <AccordionItem
+              w="95dvw"
+              m="5px auto"
+              border="1px solid #202020"
+              bg="#353535"
+              borderRadius={2}
+              overflow="hidden"
             >
-              <Accordion.Header>
-                <article className="header-infos">
+              <AccordionButton _expanded={{ bg: "#202020", color: "white" }}>
+                <Flex className="header-infos">
                   <section>
                     <h4 className="grand-prix-name"> {round.RaceName._text}</h4>{" "}
                     {countryCode && (
@@ -40,14 +43,15 @@ const ScheduleList = ({ schedule }) => {
                       />
                     )}
                   </section>
+                  <AccordionIcon position="absolute" right="3dvw" />
                   <section>
                     <span className="grand-prix-date">
                       {utcDateToLocalFormat(round.Date._text, round.Time._text)}
                     </span>
                   </section>
-                </article>
-              </Accordion.Header>
-              <Accordion.Body
+                </Flex>
+              </AccordionButton>
+              <AccordionPanel
                 style={{ display: "flex" }}
                 className="race-infos"
               >
@@ -60,7 +64,7 @@ const ScheduleList = ({ schedule }) => {
                     {round.Circuit.Location.Country._text}
                   </p>
                 </section>
-                <article className="race-dates">
+                <Flex className="race-dates">
                   <section>
                     <div>
                       <span>First Pratice: </span>
@@ -130,9 +134,9 @@ const ScheduleList = ({ schedule }) => {
                       </p>
                     </div>
                   </section>
-                </article>
-              </Accordion.Body>
-            </Accordion.Item>
+                </Flex>
+              </AccordionPanel>
+            </AccordionItem>
           </Accordion>
         );
       })}

@@ -1,15 +1,9 @@
 @import "../../styles/variables.scss";
 
 .accordion-button {
-  background-color: $black-800;
   color: $red-50;
   font-size: 1.2rem;
   border-radius: 0;
-
-  .country-flag {
-    font-size: 2.5rem;
-    margin-left: 2dvw;
-  }
 
   &:after {
     border-radius: 50%;
@@ -17,7 +11,7 @@
   }
 
   &:not(.collapsed) {
-     background-color: $transp-black;
+
 
     color: $red-100;
     box-shadow: none;
@@ -25,7 +19,8 @@
 }
 
 .finishing-list {
-  background-image: linear-gradient(to right, $gray-800, $black-300, $gray-800);
+ 
+  color: #fff;
 }
 
 .driver-finishing-card {

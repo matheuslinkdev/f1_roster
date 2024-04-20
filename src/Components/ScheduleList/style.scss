@@ -1,15 +1,11 @@
 @import "../../styles/variables.scss";
 
-.accordion-button {
-  background-color: $black-800;
-  display: flex;
-  align-items: center;
-}
 
 .header-infos {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  color: #fff;
 
   section {
     display: flex;

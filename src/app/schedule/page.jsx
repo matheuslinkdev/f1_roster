@@ -1,8 +1,10 @@
+"use client"
+
 import { useEffect, useState } from "react";
 import NavBar from "../../Components/NavBar";
 import xmlParser from "xml-js";
 import ScheduleList from "../../Components/ScheduleList";
-import Loading from "../../Components/Loading"; // Importar o componente de loading
+import Loading from "../../Components/Loading";
 
 const SchedulePage = () => {
   const [schedule, setSchedule] = useState([]);
@@ -33,7 +35,7 @@ const SchedulePage = () => {
 
   return (
     <main>
-      <NavBar />
+      <h1 className="page-name">2024 Formula 1 Schedule: </h1>
       {isLoading ? <Loading /> : <ScheduleList schedule={schedule} />}
     </main>
   );
