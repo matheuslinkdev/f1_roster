@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -7,7 +7,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.scss";
 
-import Link  from 'next/link';
+import Link from "next/link";
 import Image from "next/image";
 
 export default function NavBar() {
@@ -19,7 +19,6 @@ export default function NavBar() {
           alt="f1 roster icon"
           width={170}
           height={170}
-          layout="responsive"
           className="navbar-icon"
         />
         <Navbar.Brand href="/" className="brand">
@@ -28,20 +27,14 @@ export default function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="links-nav">
-            <Nav.Link>
-              <Link href="/" className="link">
-                Home
-              </Link>
+            <Nav.Link href="/" className="link">
+              Home
             </Nav.Link>
-            <Nav.Link>
-              <Link href="/standings" className="link">
-                Standings
-              </Link>
+            <Nav.Link href="/standings" className="link">
+              Standings
             </Nav.Link>
-            <Nav.Link>
-              <Link href="/results" className="link">
-                Results
-              </Link>
+            <Nav.Link href="/results" className="link">
+              Results
             </Nav.Link>
             <NavDropdown title="Infos" id="basic-nav-dropdown">
               <NavDropdown.Item className="dropdown-link">
@@ -60,4 +53,3 @@ export default function NavBar() {
     </Navbar>
   );
 }
-
