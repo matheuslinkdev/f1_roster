@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Providers>
-      <body style={{backgroundImage: "linear-gradient(to right, #606060, #353535, #606060)"}}>
+      <body style={{backgroundImage: "linear-gradient(to right, #808080, #a4a3a4, #808080)"}}>
         <NavBar />
         {children}
       </body>

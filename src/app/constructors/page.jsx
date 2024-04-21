@@ -5,7 +5,6 @@ import Footer from "../../Components/Footer/index";
 const ConstructorsPage = () => {
   return (
     <main>
-      <NavBar />
       <WorkInProgress />
       <Footer />
     </main>

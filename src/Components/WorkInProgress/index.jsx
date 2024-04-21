@@ -5,7 +5,7 @@ const WorkInProgress = () => {
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
-      height: "60dvh"
+      marginTop: "10dvh"
     }}>
       <h1>
         Work in progress...
