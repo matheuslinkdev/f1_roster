@@ -1,55 +1,80 @@
 "use client";
 
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./style.scss";
-
+import React from "react";
+import {
+  Box,
+  Flex,
+  HStack,
+  IconButton,
+  useDisclosure,
+  Stack,
+  Link as ChakraLink,
+  Image,
+} from "@chakra-ui/react";
+import {
+  FaBars,
+  FaTimes,
+  FaHome,
+  FaTrophy,
+  FaFlagCheckered,
+  FaUser,
+  FaCalendarAlt,
+  FaCar,
+} from "react-icons/fa";
 import Link from "next/link";
-import Image from "next/image";
+
+const links = [
+  { href: "/", text: "Home", icon: FaHome },
+  { href: "/standings", text: "Standings", icon: FaTrophy },
+  { href: "/results", text: "Results", icon: FaFlagCheckered },
+  { href: "/drivers", text: "Drivers", icon: FaUser },
+  { href: "/schedule", text: "Schedule", icon: FaCalendarAlt },
+  { href: "/constructors", text: "Constructors", icon: FaCar },
+];
 
 export default function NavBar() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
-    <Navbar expand="lg" className="navbar">
-      <Container>
-        <Image
-          src="https://i.postimg.cc/SRNkp0rT/f1-roster-icon.png"
-          alt="f1 roster icon"
-          width={170}
-          height={170}
-          className="navbar-icon"
+    <Box bg="#050505bd" px={4} w="100%">
+      <Flex h={16} alignItems="center" justifyContent="space-between">
+        <Box>
+          <Image
+            src="https://i.postimg.cc/SRNkp0rT/f1-roster-icon.png"
+            alt="f1 roster icon"
+            width="90px"
+            height="90px"
+          />
+        </Box>
+        <HStack as="nav" spacing={4} display={{ base: "none", md: "flex" }}>
+          {links.map(({ href, text, icon: Icon }, index) => (
+            <ChakraLink key={index} as={Link} href={href} color="red" fontWeight={600} fontSize=".9rem" display="flex" flexDir="column" justifyContent="center" alignItems="center" w="90px" h="60px" borderRadius="10px" _hover={{textDecor: "none", bgColor: "#454545"}}>
+              <Icon />
+              {text}
+            </ChakraLink>
+          ))}
+        </HStack>
+        <IconButton
+          size="md"
+          icon={isOpen ? <FaTimes /> : <FaBars />}
+          aria-label="Open Menu"
+          display={{ md: "none" }}
+          onClick={isOpen ? onClose : onOpen}
         />
-        <Navbar.Brand href="/" className="brand">
-          F1 Roster
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="links-nav">
-            <Nav.Link href="/" className="link">
-              Home
-            </Nav.Link>
-            <Nav.Link href="/standings" className="link">
-              Standings
-            </Nav.Link>
-            <Nav.Link href="/results" className="link">
-              Results
-            </Nav.Link>
-            <NavDropdown title="Infos" id="basic-nav-dropdown">
-              <NavDropdown.Item className="dropdown-link">
-                <Link href="/drivers">Drivers</Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item className="dropdown-link">
-                <Link href="/schedule">Schedule</Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item className="dropdown-link">
-                <Link href="/constructors">Constructors</Link>
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+      </Flex>
+
+      {isOpen && (
+        <Box pb={4} display={{ md: "none" }}>
+          <Stack as="nav" spacing={4}>
+            {links.map(({ href, text, icon: Icon }, index) => (
+              <ChakraLink key={index} as={Link} href={href} color="white">
+                <Icon />
+                {text}
+              </ChakraLink>
+            ))}
+          </Stack>
+        </Box>
+      )}
+    </Box>
   );
 }
