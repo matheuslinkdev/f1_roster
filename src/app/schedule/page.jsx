@@ -5,6 +5,7 @@ import NavBar from "../../Components/NavBar";
 import xmlParser from "xml-js";
 import ScheduleList from "../../Components/ScheduleList";
 import Loading from "../../Components/Loading";
+import { Center } from "@chakra-ui/react";
 
 const SchedulePage = () => {
   const [schedule, setSchedule] = useState([]);
@@ -34,10 +35,9 @@ const SchedulePage = () => {
   }, []);
 
   return (
-    <main>
-      <h1 className="page-name">2024 Formula 1 Schedule: </h1>
+    <Center>
       {isLoading ? <Loading /> : <ScheduleList schedule={schedule} />}
-    </main>
+    </Center>
   );
 };
 

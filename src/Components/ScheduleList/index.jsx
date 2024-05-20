@@ -1,22 +1,46 @@
 import ReactCountryFlag from "react-country-flag";
 import { getCountryCode } from "../../Services/CountryFlags";
 import moment from "moment";
-
-import "./style.scss";
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Flex } from "@chakra-ui/react";
+import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Box,
+  Center,
+  Flex,
+  Heading,
+  Text,
+} from "@chakra-ui/react";
 
 const ScheduleList = ({ schedule }) => {
+  const monthMap = {
+    "01": "Jan",
+    "02": "Feb",
+    "03": "Mar",
+    "04": "Apr",
+    "05": "May",
+    "06": "Jun",
+    "07": "Jul",
+    "08": "Aug",
+    "09": "Sep",
+    10: "Oct",
+    11: "Nov",
+    12: "Dec",
+  };
+
   const utcDateToLocalFormat = (date, time) => {
-    const utcDatetimeMoment = moment.utc(
-      date + " " + time,
-      "YYYY-MM-DD HH:mm:ss"
-    );
-    const localDatetimeMoment = utcDatetimeMoment.local();
-    return localDatetimeMoment.format("YYYY-MM-DD, HH:mm");
+    const localDatetimeMoment = moment.utc(date + " " + time).local();
+    const monthAbbr = monthMap[localDatetimeMoment.format("MM")];
+    const formattedDate = `${monthAbbr} ${localDatetimeMoment.format(
+      "DD"
+    )}, ${localDatetimeMoment.format("HH:mm")}`;
+    return formattedDate;
   };
 
   return (
-    <main>
+    <Center>
       {schedule.map((round, index) => {
         const countryName = round.Circuit.Location.Country._text;
         const countryCode = getCountryCode(countryName);
@@ -33,8 +57,8 @@ const ScheduleList = ({ schedule }) => {
             >
               <AccordionButton _expanded={{ bg: "#202020", color: "white" }}>
                 <Flex className="header-infos">
-                  <section>
-                    <h4 className="grand-prix-name"> {round.RaceName._text}</h4>{" "}
+                  <Box>
+                    <Heading className="grand-prix-name"> {round.RaceName._text}</Heading>{" "}
                     {countryCode && (
                       <ReactCountryFlag
                         countryCode={countryCode}
@@ -42,105 +66,105 @@ const ScheduleList = ({ schedule }) => {
                         svg
                       />
                     )}
-                  </section>
+                  </Box>
                   <AccordionIcon position="absolute" right="3dvw" />
-                  <section>
-                    <span className="grand-prix-date">
+                  <Box>
+                    <Text className="grand-prix-date">
                       {utcDateToLocalFormat(round.Date._text, round.Time._text)}
-                    </span>
-                  </section>
+                    </Text>
+                  </Box>
                 </Flex>
               </AccordionButton>
               <AccordionPanel
                 style={{ display: "flex" }}
                 className="race-infos"
               >
-                <section className="circuit-infos">
-                  <span>Round {round._attributes.round}</span>
-                  <h5>{round.Circuit.CircuitName._text}</h5>
-                  <p>
+                <Box className="circuit-infos">
+                  <Text>Round {round._attributes.round}</Text>
+                  <Heading>{round.Circuit.CircuitName._text}</Heading>
+                  <Text>
                     {round.Circuit.Location.Locality._text}
                     {", "}
                     {round.Circuit.Location.Country._text}
-                  </p>
-                </section>
+                  </Text>
+                </Box>
                 <Flex className="race-dates">
-                  <section>
-                    <div>
-                      <span>First Pratice: </span>
-                      <p>
+                  <Box>
+                    <Flex>
+                      <Text>First Practice: </Text>
+                      <Text>
                         {round.FirstPractice
                           ? utcDateToLocalFormat(
                               round.FirstPractice.Date._text,
                               round.FirstPractice.Time._text
                             )
                           : "TBC"}
-                      </p>
-                    </div>
-                    <div>
-                      <span>Second Practice: </span>
-                      <p>
+                      </Text>
+                    </Flex>
+                    <Flex>
+                      <Text>Second Practice: </Text>
+                      <Text>
                         {round.SecondPractice
                           ? utcDateToLocalFormat(
                               round.SecondPractice.Date._text,
                               round.SecondPractice.Time._text
                             )
                           : "TBC"}
-                      </p>
-                    </div>
-                    <div>
+                      </Text>
+                    </Flex>
+                    <Flex>
                       {round.ThirdPractice ? (
                         <>
-                          <span>Third Pratice: </span>
-                          <p>
+                          <Text>Third Practice: </Text>
+                          <Text>
                             {utcDateToLocalFormat(
                               round.ThirdPractice.Date._text,
                               round.ThirdPractice.Time._text
                             )}
-                          </p>
+                          </Text>
                         </>
                       ) : round.Sprint ? (
                         <>
-                          <span>Sprint: </span>
-                          <p>
+                          <Text>Sprint: </Text>
+                          <Text>
                             {utcDateToLocalFormat(
                               round.Sprint.Date._text,
                               round.Sprint.Time._text
                             )}
-                          </p>
+                          </Text>
                         </>
                       ) : null}
-                    </div>
-                  </section>
-                  <section>
-                    <div>
-                      <span>Qualifying:</span>
-                      <p>
+                    </Flex>
+                  </Box>
+                  <Box>
+                    <Flex>
+                      <Text>Qualifying:</Text>
+                      <Text>
                         {round.Qualifying
                           ? utcDateToLocalFormat(
                               round.Qualifying.Date._text,
                               round.Qualifying.Time._text
                             )
                           : "TBC"}
-                      </p>
-                    </div>
-                    <div>
-                      <span>Race: </span>
-                      <p>
+                      </Text>
+                    </Flex>
+                    <Flex>
+                      <Text>Race: </Text>
+                      <Text>
                         {utcDateToLocalFormat(
                           round.Date._text,
                           round.Time._text
                         )}
-                      </p>
-                    </div>
-                  </section>
+                      </Text>
+                    </Flex>
+                  </Box>
                 </Flex>
               </AccordionPanel>
             </AccordionItem>
           </Accordion>
         );
       })}
-    </main>
+    </Center>
   );
 };
 

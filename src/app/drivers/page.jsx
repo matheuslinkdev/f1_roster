@@ -1,10 +1,10 @@
 "use client"
 
 import { useEffect, useState } from "react";
-import NavBar from "../../Components/NavBar";
 import { fetchDrivers } from "../../Services/Api";
 import DriversList from "../../Components/DriversList";
 import Loading from "../../Components/Loading";
+import { Center } from "@chakra-ui/react";
 
 const DriversPage = () => {
   const [drivers, setDrivers] = useState([]);
@@ -27,9 +27,9 @@ const DriversPage = () => {
   }, []);
 
   return (
-    <main>
+    <Center>
       {isLoading ? <Loading /> : <DriversList drivers={drivers} />}
-    </main>
+    </Center>
   );
 };
 

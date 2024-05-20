@@ -20,6 +20,7 @@ import {
   FaUser,
   FaCalendarAlt,
   FaCar,
+  FaNewspaper,
 } from "react-icons/fa";
 import Link from "next/link";
 
@@ -30,13 +31,18 @@ const links = [
   { href: "/drivers", text: "Drivers", icon: FaUser },
   { href: "/schedule", text: "Schedule", icon: FaCalendarAlt },
   { href: "/constructors", text: "Constructors", icon: FaCar },
+  {
+    href: "https://www.formula1.com/en/latest/all",
+    text: "News",
+    icon: FaNewspaper,
+  },
 ];
 
 export default function NavBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Box bg="#050505bd" px={4} w="100%">
+    <Box bg="#050505bd" px={4} w="100%" h="10dvh">
       <Flex h={16} alignItems="center" justifyContent="space-between">
         <Box>
           <Image
@@ -48,7 +54,22 @@ export default function NavBar() {
         </Box>
         <HStack as="nav" spacing={4} display={{ base: "none", md: "flex" }}>
           {links.map(({ href, text, icon: Icon }, index) => (
-            <ChakraLink key={index} as={Link} href={href} color="red" fontWeight={600} fontSize=".9rem" display="flex" flexDir="column" justifyContent="center" alignItems="center" w="90px" h="60px" borderRadius="10px" _hover={{textDecor: "none", bgColor: "#454545"}}>
+            <ChakraLink
+              key={index}
+              as={Link}
+              href={href}
+              color="red"
+              fontWeight={400}
+              fontSize=".9rem"
+              display="flex"
+              flexDir="column"
+              justifyContent="center"
+              alignItems="center"
+              w="90px"
+              h="60px"
+              borderRadius="10px"
+              _hover={{ textDecor: "none", bgColor: "#454545" }}
+            >
               <Icon />
               {text}
             </ChakraLink>

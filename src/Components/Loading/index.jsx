@@ -1,8 +1,8 @@
-import { Spinner } from 'react-bootstrap';
+import { Box, Spinner, Text } from "@chakra-ui/react";
 
 const Loading = () => {
   return (
-    <div
+    <Box
       style={{
         margin: "auto",
         display: "flex",
@@ -11,9 +11,9 @@ const Loading = () => {
         marginTop: "25dvh",
       }}
     >
-      <Spinner animation="border" role="status" />
-      <span>Loading...</span>
-    </div>
+      <Spinner/>
+      <Text>Loading...</Text>
+    </Box>
   );
 }
 

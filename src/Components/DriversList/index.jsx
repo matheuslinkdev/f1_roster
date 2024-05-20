@@ -1,19 +1,16 @@
-import { Card, ListGroup } from "react-bootstrap";
 import ReactCountryFlag from "react-country-flag";
 import { getCountryCode } from "../../Services/CountryFlags";
-
-import "./style.scss";
 import Image from "next/image";
+import { Box, Center, List, ListItem, Text } from "@chakra-ui/react";
 
 const DriversList = ({ drivers }) => {
   return (
-    <article>
-      <h1 className="page-name">Drivers: </h1>
-      <ListGroup className="drivers-list">
+    <Center>
+      <List>
         {drivers
           .sort((a, b) => a.team_name.localeCompare(b.team_name))
           .map((driver, index) => {
-            //One color have a problem in the API, i found this solution
+            // One color has a problem in the API, I found this solution
             const colorMapping = {
               "5.2e+253": "52e253",
             };
@@ -25,36 +22,44 @@ const DriversList = ({ drivers }) => {
               colorMapping[driver.team_colour] || driver.team_colour;
 
             return (
-              <ListGroup.Item
+              <ListItem
                 key={index}
                 style={{
                   borderColor: `#${correctedColor}`,
                   borderWidth: "0px 0px 0px 2px",
                 }}
-                className="driver-card"
               >
-                <Image src={driver.headshot_url} className="driver-img" alt={`${driver.full_name} photo`} width={93} height={93}/>
-                <section className="driver-info">
+                <Image
+                  src={driver.headshot_url}
+                  alt={`${driver.full_name} photo`}
+                  width={93}
+                  height={93}
+                />
+                <Box>
                   <span style={{ color: `#${correctedColor}` }}>
                     #{driver.driver_number}
                   </span>
-                  <p>{driver.full_name}</p>
-                </section>
+                  <Text>{driver.full_name}</Text>
+                </Box>
 
-                <section className="other-infos">
-                  <p>Team: {driver.team_name}</p>
-                  <p>Acronym: {driver.name_acronym}</p>
-                  <p>
+                <Box>
+                  <Text>Team: {driver.team_name}</Text>
+                  <Text>Acronym: {driver.name_acronym}</Text>
+                  <Text>
                     {countryCode && (
-                      <ReactCountryFlag className="country-flag" countryCode={countryCode} alt="Country Icon" svg/>
+                      <ReactCountryFlag
+                        countryCode={countryCode}
+                        alt="Country Icon"
+                        svg
+                      />
                     )}
-                  </p>
-                </section>
-              </ListGroup.Item>
+                  </Text>
+                </Box>
+              </ListItem>
             );
           })}
-      </ListGroup>
-    </article>
+      </List>
+    </Center>
   );
 };
 

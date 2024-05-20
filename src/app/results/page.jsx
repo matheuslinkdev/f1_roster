@@ -5,6 +5,7 @@ import xmlParser from "xml-js";
 import RaceResultsList from "../../Components/ResultsList";
 import NavBar from "../../Components/NavBar";
 import Loading from "../../Components/Loading";
+import { Center } from "@chakra-ui/react";
 
 const RaceResultsPage = () => {
   const [raceResults, setRaceResults] = useState([]);
@@ -47,13 +48,13 @@ const RaceResultsPage = () => {
   const memoizedRaceResults = useMemo(() => raceResults, [raceResults]);
 
   return (
-    <main>
+    <Center>
       {isLoading ? (
         <Loading />
       ) : (
         <RaceResultsList raceResults={memoizedRaceResults} />
       )}
-    </main>
+    </Center>
   );
 };
 

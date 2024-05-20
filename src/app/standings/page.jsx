@@ -5,6 +5,7 @@ import NavBar from "../../Components/NavBar";
 import xmlParser from "xml-js";
 import DriverStandingsList from "../../Components/StandingsList";
 import Loading from "../../Components/Loading";
+import { Center } from "@chakra-ui/react";
 
 const StandingsPage = () => {
   const [driverStandings, setDriverStandings] = useState([]);
@@ -39,13 +40,13 @@ const StandingsPage = () => {
   }, []);
 
   return (
-      <main>
+      <Center>
         {isLoading ? (
           <Loading />
         ) : (
           <DriverStandingsList driverStandings={driverStandings} />
         )}
-      </main>
+      </Center>
   );
 };
 

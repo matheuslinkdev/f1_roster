@@ -1,8 +1,19 @@
 import ReactCountryFlag from "react-country-flag";
 import { getCountryCode } from "../../Services/CountryFlags";
 import { getOrdinalSuffix } from "../../Services/Sufix";
-import "./style.scss";
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionHeader, AccordionPanel, Flex, List, ListItem } from "@chakra-ui/react";
+import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Flex,
+  List,
+  ListItem,
+  Center,
+  Box,
+  Text,
+} from "@chakra-ui/react";
 
 const RaceResultsList = ({ raceResults }) => {
   const formatFinishingStatus = (result) => {
@@ -20,7 +31,7 @@ const RaceResultsList = ({ raceResults }) => {
   };
 
   return (
-    <main>
+    <Center>
       {raceResults.map((race, index) => {
         const { Circuit, RaceName, ResultsList } = race.RaceTable.Race || {};
         const circuitCountryName = Circuit
@@ -33,7 +44,6 @@ const RaceResultsList = ({ raceResults }) => {
           <Accordion key={index} allowToggle>
             {RaceName && (
               <AccordionItem
-                className="accordion-item"
                 w="95dvw"
                 m="5px auto"
                 border="1px solid #202020"
@@ -41,11 +51,17 @@ const RaceResultsList = ({ raceResults }) => {
                 borderRadius={2}
                 overflow="hidden"
               >
-                <AccordionButton _expanded={{ bg: "#202020" }} h="80px" color="white" fontWeight={600} fontSize="1.1rem">
+                <AccordionButton
+                  _expanded={{ bg: "#202020" }}
+                  h="80px"
+                  color="white"
+                  fontWeight={600}
+                  fontSize="1.1rem"
+                >
                   {RaceName._text}
                   <ReactCountryFlag
                     countryCode={circuitCountryCode}
-                    style={{fontSize: "40px", marginLeft: "10px"}}
+                    style={{ fontSize: "40px", marginLeft: "10px" }}
                     svg
                   />
                   <AccordionIcon position="absolute" right="3dvw" />
@@ -61,38 +77,29 @@ const RaceResultsList = ({ raceResults }) => {
                         <ListItem
                           key={resultIndex}
                           style={{ display: "flex", margin: "auto" }}
-                          className="driver-finishing-card"
                         >
-                          <article>
-                            <section className="driver-finishing-info">
-                              <p className="driver-finishing-position">
+                          <Flex>
+                            <Box>
+                              <Text>
                                 {result._attributes.position}
                                 {getOrdinalSuffix(result._attributes.position)}
-                              </p>
-                              <p className="driver-finishing-name">
+                              </Text>
+                              <Text>
                                 {GivenName._text} {FamilyName._text}
-                              </p>
-                              <ReactCountryFlag
-                                className="driver-finishing-country"
-                                countryCode={countryCode}
-                                svg
-                              />
-                            </section>
-                            <section className="other-finishing-infos">
-                              <span className="driver-finishing-points">
+                              </Text>
+                              <ReactCountryFlag countryCode={countryCode} svg />
+                            </Box>
+                            <Box>
+                              <Text>
                                 {result._attributes.points}{" "}
                                 {result._attributes.position % 10 === 0
                                   ? "Point"
                                   : "Points"}
-                              </span>
-                              <p className="finishing-constructor-name">
-                                {result.Constructor.Name._text}
-                              </p>
-                              <p className="driver-finishing-status">
-                                {formatFinishingStatus(result)}
-                              </p>
-                            </section>
-                          </article>
+                              </Text>
+                              <Text>{result.Constructor.Name._text}</Text>
+                              <Text>{formatFinishingStatus(result)}</Text>
+                            </Box>
+                          </Flex>
                         </ListItem>
                       );
                     })}
@@ -103,7 +110,7 @@ const RaceResultsList = ({ raceResults }) => {
           </Accordion>
         );
       })}
-    </main>
+    </Center>
   );
 };
 

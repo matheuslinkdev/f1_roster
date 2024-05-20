@@ -1,7 +1,6 @@
 import { getCountryCode } from "../../Services/CountryFlags";
 import ReactCountryFlag from "react-country-flag";
 import { getOrdinalSuffix } from "../../Services/Sufix";
-import "./style.scss";
 import { Box, Center, Flex, Heading, Text } from "@chakra-ui/react";
 
 const DriverStandingsList = ({ driverStandings }) => {
