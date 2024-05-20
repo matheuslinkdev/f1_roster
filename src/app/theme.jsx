@@ -4,7 +4,7 @@ export const theme = extendTheme({
   styles: {
     global: {
       "body, main": {
-        bgGradient: "radial(red.50, common.200)",
+        bgColor: "common.400",
         backgroundAttachment: "fixed",
         minHeight: "100dvh",
         width: "100%",
