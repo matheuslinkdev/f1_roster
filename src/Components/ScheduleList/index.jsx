@@ -40,7 +40,7 @@ const ScheduleList = ({ schedule }) => {
   };
 
   return (
-    <Center>
+    <Center flexDir="column">
       {schedule.map((round, index) => {
         const countryName = round.Circuit.Location.Country._text;
         const countryCode = getCountryCode(countryName);

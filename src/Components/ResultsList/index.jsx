@@ -31,7 +31,7 @@ const RaceResultsList = ({ raceResults }) => {
   };
 
   return (
-    <Center>
+    <Center flexDir="column">
       {raceResults.map((race, index) => {
         const { Circuit, RaceName, ResultsList } = race.RaceTable.Race || {};
         const circuitCountryName = Circuit
@@ -47,6 +47,7 @@ const RaceResultsList = ({ raceResults }) => {
                 w="95dvw"
                 m="5px auto"
                 border="1px solid #202020"
+                
                 bg="#353535"
                 borderRadius={2}
                 overflow="hidden"
@@ -66,8 +67,8 @@ const RaceResultsList = ({ raceResults }) => {
                   />
                   <AccordionIcon position="absolute" right="3dvw" />
                 </AccordionButton>
-                <AccordionPanel bg="#050505bd">
-                  <List m="auto">
+                <AccordionPanel >
+                  <List m="auto" >
                     {results.map((result, resultIndex) => {
                       const { Nationality, GivenName, FamilyName } =
                         result.Driver;
@@ -76,30 +77,43 @@ const RaceResultsList = ({ raceResults }) => {
                       return (
                         <ListItem
                           key={resultIndex}
-                          style={{ display: "flex", margin: "auto" }}
+                          borderRadius="5px"
+                           w="100%" my={1}
+                           display="flex"
+                           justifyContent="space-between"
+                           alignItems="center"
+                           p={2}
+                           bg="#050505bd"
+                           border="1px solid transparent"
+                           transition=".2s linear"
+                              _hover={{ borderColor: "red.500", transform: "scale(1.01)"}}
                         >
-                          <Flex>
-                            <Box>
-                              <Text>
+                     
+                            <Box display="flex"
+              width="250px"
+              maxWidth="50%"
+              justifyContent="space-between"
+              flexDir={{ base: "column", md: "row" }}>
+                              <Text fontSize={22} fontWeight={500}>
                                 {result._attributes.position}
                                 {getOrdinalSuffix(result._attributes.position)}
                               </Text>
-                              <Text>
+                              <Text fontSize={20}>
                                 {GivenName._text} {FamilyName._text}
                               </Text>
-                              <ReactCountryFlag countryCode={countryCode} svg />
+                              <ReactCountryFlag countryCode={countryCode} svg   style={{ fontSize: "26px" }} />
                             </Box>
-                            <Box>
-                              <Text>
+                            <Box textAlign="end" maxW="50%">
+                              <Text fontSize={18}>
                                 {result._attributes.points}{" "}
                                 {result._attributes.position % 10 === 0
                                   ? "Point"
                                   : "Points"}
                               </Text>
-                              <Text>{result.Constructor.Name._text}</Text>
-                              <Text>{formatFinishingStatus(result)}</Text>
+                              <Text fontSize={18}>{result.Constructor.Name._text}</Text>
+                              <Text fontSize={18} fontWeight={500}>{formatFinishingStatus(result)}</Text>
                             </Box>
-                          </Flex>
+                         
                         </ListItem>
                       );
                     })}

@@ -19,6 +19,7 @@ const DriverStandingsList = ({ driverStandings }) => {
             h="10dvh"
             bgColor="common.800"
             border="1px solid transparent"
+            borderRadius="5px"
             color="#fff"
             p={1}
             my={1}
