@@ -30,7 +30,7 @@ export default function Home() {
         >
           <Box>
             <Heading> Welcome to F1 Roster</Heading>
-            <Text fontSize={18} fontWeight={500} maxW="95dvw">
+            <Text fontSize={18} fontWeight={500} maxW="95dvw" mt={2}>
               Here you can find the latest infos about the current Formula 1
               season, including:
             </Text>

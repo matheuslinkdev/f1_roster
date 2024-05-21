@@ -86,7 +86,7 @@ const RaceResultsList = ({ raceResults }) => {
                            bg="#050505bd"
                            border="1px solid transparent"
                            transition=".2s linear"
-                              _hover={{ borderColor: "red.500", transform: "scale(1.01)"}}
+                              _hover={{ borderColor: "red.500"}}
                         >
                      
                             <Box display="flex"
