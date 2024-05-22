@@ -56,43 +56,40 @@ const ScheduleList = ({ schedule }) => {
               overflow="hidden"
             >
               <AccordionButton _expanded={{ bg: "#202020", color: "white" }}>
-                <Flex className="header-infos">
-                  <Box>
-                    <Heading className="grand-prix-name"> {round.RaceName._text}</Heading>{" "}
+                <Flex justifyContent="space-between" w="80%" textAlign="start">
+                  <Box display="flex" alignItems="center">
+                    <Heading size="md" fontWeight={500}>{round.RaceName._text}</Heading>{" "}
+                    <Center display={{base: "none", md: "block"}}>
+
                     {countryCode && (
-                      <ReactCountryFlag
-                        countryCode={countryCode}
-                        className="country-flag-img"
-                        svg
-                      />
+                      <ReactCountryFlag countryCode={countryCode} svg style={{fontSize: 28, marginLeft: "10px"}}/>
                     )}
+                    </Center>
                   </Box>
                   <AccordionIcon position="absolute" right="3dvw" />
-                  <Box>
-                    <Text className="grand-prix-date">
+                  <Box display="flex" alignItems="center">
+                    <Heading size="sm" fontWeight={500} display={{base: "none", md: "block"}}>{round.Circuit.CircuitName._text}</Heading>
+                    <Text ml={2} fontWeight={500} mt="1px">
                       {utcDateToLocalFormat(round.Date._text, round.Time._text)}
                     </Text>
                   </Box>
                 </Flex>
               </AccordionButton>
-              <AccordionPanel
-                style={{ display: "flex" }}
-                className="race-infos"
-              >
-                <Box className="circuit-infos">
-                  <Text>Round {round._attributes.round}</Text>
-                  <Heading>{round.Circuit.CircuitName._text}</Heading>
-                  <Text>
+              <AccordionPanel display="flex" flexDir={{base: "column", md: "row"}} justifyContent="space-between">
+                <Box>
+                  <Text fontWeight={500} my={4}>Round {round._attributes.round}</Text>
+                  <Heading size="md" fontWeight={500} my={4}>{round.Circuit.CircuitName._text}</Heading>
+                  <Text fontWeight={500} fontSize={20} my={4}>
                     {round.Circuit.Location.Locality._text}
                     {", "}
                     {round.Circuit.Location.Country._text}
                   </Text>
                 </Box>
-                <Flex className="race-dates">
-                  <Box>
-                    <Flex>
+               
+                  <Box fontSize={18} fontWeight={500}>
+                    <Flex my={4}>
                       <Text>First Practice: </Text>
-                      <Text>
+                      <Text ml={1}>
                         {round.FirstPractice
                           ? utcDateToLocalFormat(
                               round.FirstPractice.Date._text,
@@ -101,9 +98,9 @@ const ScheduleList = ({ schedule }) => {
                           : "TBC"}
                       </Text>
                     </Flex>
-                    <Flex>
+                    <Flex my={4}>
                       <Text>Second Practice: </Text>
-                      <Text>
+                      <Text ml={1}>
                         {round.SecondPractice
                           ? utcDateToLocalFormat(
                               round.SecondPractice.Date._text,
@@ -112,11 +109,11 @@ const ScheduleList = ({ schedule }) => {
                           : "TBC"}
                       </Text>
                     </Flex>
-                    <Flex>
+                    <Flex my={4}>
                       {round.ThirdPractice ? (
                         <>
                           <Text>Third Practice: </Text>
-                          <Text>
+                          <Text ml={1}>
                             {utcDateToLocalFormat(
                               round.ThirdPractice.Date._text,
                               round.ThirdPractice.Time._text
@@ -126,7 +123,7 @@ const ScheduleList = ({ schedule }) => {
                       ) : round.Sprint ? (
                         <>
                           <Text>Sprint: </Text>
-                          <Text>
+                          <Text ml={1}>
                             {utcDateToLocalFormat(
                               round.Sprint.Date._text,
                               round.Sprint.Time._text
@@ -136,10 +133,10 @@ const ScheduleList = ({ schedule }) => {
                       ) : null}
                     </Flex>
                   </Box>
-                  <Box>
-                    <Flex>
+                  <Box fontSize={18} fontWeight={500}>
+                    <Flex my={4}>
                       <Text>Qualifying:</Text>
-                      <Text>
+                      <Text ml={1}>
                         {round.Qualifying
                           ? utcDateToLocalFormat(
                               round.Qualifying.Date._text,
@@ -148,9 +145,9 @@ const ScheduleList = ({ schedule }) => {
                           : "TBC"}
                       </Text>
                     </Flex>
-                    <Flex>
+                    <Flex my={4}>
                       <Text>Race: </Text>
-                      <Text>
+                      <Text ml={1}>
                         {utcDateToLocalFormat(
                           round.Date._text,
                           round.Time._text
@@ -158,7 +155,7 @@ const ScheduleList = ({ schedule }) => {
                       </Text>
                     </Flex>
                   </Box>
-                </Flex>
+                
               </AccordionPanel>
             </AccordionItem>
           </Accordion>

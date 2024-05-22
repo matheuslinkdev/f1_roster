@@ -1,12 +1,12 @@
 import ReactCountryFlag from "react-country-flag";
 import { getCountryCode } from "../../Services/CountryFlags";
 import Image from "next/image";
-import { Box, Center, List, ListItem, Text } from "@chakra-ui/react";
+import { Flex, Center, List, ListItem, Text } from "@chakra-ui/react";
 
 const DriversList = ({ drivers }) => {
   return (
-    <Center>
-      <List>
+    <Center flexDir="column">
+      <List w="95dvw" m="auto" h={70} maxH={120}>
         {drivers
           .sort((a, b) => a.team_name.localeCompare(b.team_name))
           .map((driver, index) => {
@@ -24,37 +24,70 @@ const DriversList = ({ drivers }) => {
             return (
               <ListItem
                 key={index}
-                style={{
-                  borderColor: `#${correctedColor}`,
-                  borderWidth: "0px 0px 0px 2px",
-                }}
+                borderLeft={`5px solid #${correctedColor}`}
+                borderRadius="5px"
+                w="95%"
+                m="5px auto"
+                bgColor="common.900"
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
               >
-                <Image
-                  src={driver.headshot_url}
-                  alt={`${driver.full_name} photo`}
-                  width={93}
-                  height={93}
-                />
-                <Box>
-                  <span style={{ color: `#${correctedColor}` }}>
-                    #{driver.driver_number}
-                  </span>
-                  <Text>{driver.full_name}</Text>
-                </Box>
+                <Flex
+                  alignItems={{ base: "start", md: "center" }}
+                  flexDir={{ base: "column", md: "row" }}
+                  justify="left"
+                  textAlign="left"
+                  w={300}
+                  maxW="50%"
+                >
+                  <Image
+                    src={driver.headshot_url}
+                    alt={`${driver.full_name} photo`}
+                    width={75}
+                    height={65}
+                  />
 
-                <Box>
-                  <Text>Team: {driver.team_name}</Text>
-                  <Text>Acronym: {driver.name_acronym}</Text>
+                  <Text
+                    color={`#${correctedColor}`}
+                    fontSize={20}
+                    fontWeight={500}
+                    ml={2}
+                  >
+                    #{driver.driver_number}
+                  </Text>
+                  <Text fontSize={18} fontWeight={500} ml={2} mt="2px">
+                    {driver.full_name}
+                  </Text>
+                </Flex>
+
+                <Flex
+                  alignItems={{ base: "end", md: "center" }}
+                  justifyContent="space-between"
+                  flexDir={{ base: "column", md: "row" }}
+                >
+                  <Text
+                    color={`#${correctedColor}`}
+                    fontSize={18}
+                    fontWeight={500}
+                    mr={1}
+                  >
+                    {driver.team_name}
+                  </Text>
+                  <Text fontSize={18} fontWeight={500} mr={2} ml={4}>
+                    Acronym: {driver.name_acronym}
+                  </Text>
                   <Text>
                     {countryCode && (
                       <ReactCountryFlag
                         countryCode={countryCode}
                         alt="Country Icon"
                         svg
+                        style={{ fontSize: 26, marginRight: "2px" }}
                       />
                     )}
                   </Text>
-                </Box>
+                </Flex>
               </ListItem>
             );
           })}
