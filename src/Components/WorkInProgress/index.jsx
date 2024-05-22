@@ -1,19 +1,15 @@
+import { Center, Heading, Text } from "@chakra-ui/react"
+
 const WorkInProgress = () => {
   return (
-    <article style={{
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-      marginTop: "10dvh"
-    }}>
-      <h1>
+    <Center h="80dvh" flexDir="column">
+      <Heading mb={4} size="lg" fontWeight={400}>
         Work in progress...
-      </h1>
-      <p>
+      </Heading>
+      <Text fontSize={20}>
         Some infos are currently not available due API limitations.
-      </p>
-    </article>
+      </Text>
+    </Center>
   )
 }
 

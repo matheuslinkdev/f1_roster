@@ -16,7 +16,7 @@ const DriverStandingsList = ({ driverStandings }) => {
             justifyContent="space-between"
             key={index}
             w="100%"
-            h="10dvh"
+            h="100%"
             bgColor="common.800"
             border="1px solid transparent"
             borderRadius="5px"

@@ -40,7 +40,8 @@ export default function NavBar() {
       zIndex={10}
     >
       <Flex h="100%" alignItems="center" justifyContent="space-between">
-        <Box h="100%" display="flex" alignItems="center">
+        <Box h="100%" display="flex" alignItems="center" cursor="pointer">
+           <Link href="/">
           <Image
             src="https://i.postimg.cc/SRNkp0rT/f1-roster-icon.png"
             alt="f1 roster icon"
@@ -48,9 +49,10 @@ export default function NavBar() {
             height="90px"
             ml="-5px"
           />
+        </Link>
         </Box>
         <HStack as="nav" spacing={4} display={{ base: "none", md: "flex" }} maxW={"80%"}>
-          {navBarLinks.map(({ href, text, icon: Icon }, index) => (
+          {navBarLinks.map(({ href, text }, index) => (
             <ChakraLink
               key={index}
               as={Link}

@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react";
-import NavBar from "../../Components/NavBar";
 import xmlParser from "xml-js";
 import DriverStandingsList from "../../Components/StandingsList";
 import Loading from "../../Components/Loading";
