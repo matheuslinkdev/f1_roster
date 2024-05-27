@@ -1,7 +1,6 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react";
-import NavBar from "../../Components/NavBar";
+import { useEffect, useState, useMemo } from "react";
 import xmlParser from "xml-js";
 import ScheduleList from "../../Components/ScheduleList";
 import Loading from "../../Components/Loading";
@@ -16,6 +15,13 @@ const SchedulePage = () => {
       try {
         setIsLoading(true);
 
+        const storedSchedule = localStorage.getItem("schedule");
+        if (storedSchedule) {
+          setSchedule(JSON.parse(storedSchedule));
+          setIsLoading(false);
+          return;
+        }
+
         const response = await fetch("https://ergast.com/api/f1/current");
         if (!response.ok) {
           throw new Error("Erro ao obter dados do calendário de corridas");
@@ -23,7 +29,10 @@ const SchedulePage = () => {
 
         const data = await response.text();
         const json = xmlParser.xml2js(data, { compact: true, spaces: 4 });
-        setSchedule(json.MRData.RaceTable.Race);
+        const raceSchedule = json.MRData.RaceTable.Race;
+        setSchedule(raceSchedule);
+
+        localStorage.setItem("schedule", JSON.stringify(raceSchedule));
       } catch (error) {
         console.error("Erro ao buscar dados do calendário de corridas:", error);
       } finally {
@@ -34,9 +43,11 @@ const SchedulePage = () => {
     fetchSchedule();
   }, []);
 
+  const memoizedSchedule = useMemo(() => schedule, [schedule]);
+
   return (
     <Center>
-      {isLoading ? <Loading /> : <ScheduleList schedule={schedule} />}
+      {isLoading ? <Loading /> : <ScheduleList schedule={memoizedSchedule} />}
     </Center>
   );
 };

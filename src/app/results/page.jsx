@@ -1,9 +1,8 @@
-"use client"
+"use client";
 
 import { useEffect, useState, useMemo } from "react";
 import xmlParser from "xml-js";
 import RaceResultsList from "../../Components/ResultsList";
-import NavBar from "../../Components/NavBar";
 import Loading from "../../Components/Loading";
 import { Center } from "@chakra-ui/react";
 
@@ -33,8 +32,17 @@ const RaceResultsPage = () => {
       try {
         setIsLoading(true);
 
+        const storedResults = localStorage.getItem("raceResults");
+        if (storedResults) {
+          setRaceResults(JSON.parse(storedResults));
+          setIsLoading(false);
+          return;
+        }
+
         const results = await fetchRaceResults(25);
         setRaceResults(results);
+
+        localStorage.setItem("raceResults", JSON.stringify(results));
       } catch (error) {
         console.error("Error fetching race results", error);
       } finally {

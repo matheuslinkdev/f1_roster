@@ -24,7 +24,7 @@ const HomeContent = () => {
         flexWrap="wrap"
         gap="15px"
         flexDir={{ base: "column", md: "row" }}
-        w="95dvw"
+        w="100%"
         justifyContent="space-evenly"
         mt={10}
         mx="auto"
