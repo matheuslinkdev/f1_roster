@@ -1,8 +1,15 @@
-# F1_roster
 
-## A page for the users search about the data of the current Formula 1 season
+### F1 Roster
 
-### The app doesn't have too many data due to api limitations
+Nesse site os usuários podem consultar informações sobre a temporada da Fórmula 1, como: 
 
-### I'll start a refactoring of this project, this time using next due all of his benefits, it will help a lot
+- Resultados
+- Calendário
+- Pilotos
+- Classificação
 
+Esse site foi construído utilizando React JS, Next JS e Chakra UI.
+Durante o desenvolvimento dele eu tive que usar a lib ``xml-parser`` para fazer a conversão para JSON de dados que retornavam de uma das API's no formato XML.
+E utilizei a lib ``moment-js`` para definir os horários com base na localização do usuário.
+
+O site não possui informações muito detalhadas por conta de algumas limitações das API's, mas para quem quiser conferir as informações básicas, já está ótimo.
