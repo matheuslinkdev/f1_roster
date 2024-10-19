@@ -16,6 +16,10 @@ main{
   min-height: 80dvh;
 }
 
+.transition-default{
+  transition: .3s ease;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

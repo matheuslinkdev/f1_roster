@@ -32,7 +32,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col justify-between items-between bg-gray-950`}
       >
         <Providers>
-          <header className="absolute w-full z-50">
+          <header className="w-full z-50">
             <NavBar />
           </header>
           <main className="flex flex-col w-full mx-auto justify-center items-center z-40">

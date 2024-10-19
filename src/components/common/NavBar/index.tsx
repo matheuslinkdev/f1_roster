@@ -5,6 +5,7 @@ import { formulaOneLinks, formulaTwoLinks } from "@/data/links";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import axios from "axios"
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

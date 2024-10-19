@@ -1,10 +1,12 @@
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
+
 export type DriverProps = {
   position: number;
   first_name: string;
   last_name: string;
-  driver_number: string | URL;
-  driver_image: string | URL;
-  country_flag: string | URL;
+  driver_number: string | StaticImport;
+  driver_image: string | StaticImport;
+  country_flag: string | StaticImport;
   team: string;
   points: string;
 };
