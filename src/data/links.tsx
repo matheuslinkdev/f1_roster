@@ -19,8 +19,12 @@ export const mainLinks = [
 
 export const formulaOneLinks = [
   {
-    name: "Standings",
-    href: "/formulaone/standings",
+    name: "Driver Standings",
+    href: "/formulaone/driver-standings",
+  },
+  {
+    name: "Constructor Standings",
+    href: "/formulaone/constructor-standings",
   },
   {
     name: "Drivers",

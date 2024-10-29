@@ -5,7 +5,7 @@ export default function defineBorderColor(surename: string) {
   if (replacedDrivers.includes(surename)) {
     return "2px solid red";
   } else if (nonRegularDrivers.includes(surename)) {
-    return "2px solid gray";
+    return "2px solid yellow";
   } else {
     return "2px solid green";
   }

@@ -1,11 +1,10 @@
 export default function ordinalSufixByPosition(position: number | string) {
-  const lastChar = position.toString().charAt(position.toString().length - 1);
 
-  if (lastChar === "1") {
+  if (position === "1" || position === "21") {
     return `${position}st`;
-  } else if (lastChar === "2") {
+  } else if (position === "2" || position === "22") {
     return `${position}nd`;
-  } else if (lastChar === "3") {
+  } else if (position === "3" || position === "23") {
     return `${position}rd`;
   } else if (position === "NC") {
     return "NC";
