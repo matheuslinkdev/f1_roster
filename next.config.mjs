@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "media.formula1.com",
       },
+      {
+        protocol: "https",
+        hostname: "https://flagicons.lipis.dev",
+      },
     ],
   },
 };

@@ -1,7 +1,9 @@
 "use client";
 
+import { getCountryCode } from "@/utils/countryFlag";
 import { formatRaceDate } from "@/utils/formatDate";
 import { formatDate } from "date-fns";
+import Image from "next/image";
 import React, { useState } from "react";
 
 const date = new Date
@@ -13,6 +15,9 @@ const RaceCard = ({ race }) => {
   const thirdPractice = race.ThirdPractice;
   const qualifying = race.Qualifying;
   const sprintRace = race.Sprint;
+  const country = race.Circuit.Location.country;
+
+  const formattedCountry = getCountryCode(country)
   
   const formattedRaceDay = formatDate(race.date, "MM/dd/yyyy")
 
@@ -32,12 +37,22 @@ const RaceCard = ({ race }) => {
   }
 
   return (
-    <section className="border-[1px] rounded-lg w-[35rem] max-w-[95dvw] overflow-hidden" style={{borderColor: defineBorder()}}>
-      <header className="flex justify-between items-center w-full">
+    <section
+      className="border-2 rounded-lg w-[35rem] max-w-[95dvw] overflow-hidden"
+      style={{ borderColor: defineBorder() }}
+    >
+      <header className="flex justify-between items-center w-full p-4 gap-2">
+        <Image
+          src={`https://flagicons.lipis.dev/flags/4x3/${formattedCountry}.svg`}
+          width={50}
+          height={60}
+          alt={`${country} flag`}
+          className="rounded-md"
+        />
         <button
           aria-expanded={isOpen}
           onClick={toggleAccordion}
-          className="w-full flex justify-between py-3 px-4 text-gray-800 font-semibold focus:outline-none text-xl"
+          className="w-full flex justify-between text-gray-800 font-semibold focus:outline-none text-xl"
         >
           <h1 className="">{race.raceName}</h1>
           <span>{isOpen ? "-" : "+"}</span>
@@ -56,10 +71,7 @@ const RaceCard = ({ race }) => {
             <div className="flex gap-2 bg-gray-900 p-2 rounded-lg">
               <h3 className="text-gray-300 ">FP1: </h3>
               <h3 className="">
-                {formatRaceDate(
-                  race.FirstPractice.date,
-                  race.FirstPractice.time
-                )}
+                {formatRaceDate(firstPractice.date, firstPractice.time)}
               </h3>
             </div>
             {thirdPractice.date !== "" ? (

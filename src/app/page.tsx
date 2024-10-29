@@ -1,6 +1,12 @@
+"use client"
+
+import { GetResults } from "@/api/FetchF1Data";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
-export default function Home() {
+
+export default function Home () {
+
   return (
     <main className="flex relative w-full min-h-screen bg-[url('/images/f1-australia.webp')] bg-cover bg-center">
       <article className="flex flex-col items-start justify-center w-full min-h-screen ">

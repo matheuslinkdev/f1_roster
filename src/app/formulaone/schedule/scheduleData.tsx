@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export default function ScheduleData() {
   const { data, error, isFetched } = useQuery({
-    queryKey: ["schedule"],
+    queryKey: ["schedule"], 
     queryFn: GetSchedule,
     refetchOnMount: false,
     refetchOnWindowFocus: false,

@@ -22,20 +22,20 @@ export type StandingDriverProps = {
 type TeamDriverProps = {
   first_name: string;
   last_name: string;
-  driver_image: string | URL;
+  driver_image: string | StaticImport;
 };
 
 export type ConstructorProps = {
   name: string;
-  team_logo: string | URL;
+  team_logo: string | StaticImport;
   team_drivers: TeamDriverProps[];
-  car_image: string | URL
+  car_image: string | StaticImport;
 };
 
 export type StandingConstructorProps = {
-  name: string
-  position: number
-  team_logo: string | URL
-  points: string
-  car_image: string | URL
+  name: string;
+  position: number;
+  team_logo: string | StaticImport;
+  points: string;
+  car_image: string | StaticImport;
 };
