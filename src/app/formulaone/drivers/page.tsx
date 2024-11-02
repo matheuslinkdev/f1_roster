@@ -23,7 +23,7 @@ const Drivers = async () => {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <main className="flex flex-col w-full min-h-screen">
+      <main className="flex flex-col w-full min-h-screen gap-6">
         <article className="flex flex-col gap-4 mt-4">
           <h1 className="text-3xl">Formula 1 Drivers of 2024</h1>
           <DriversCurrentStatus />

@@ -41,28 +41,29 @@ const RaceCard = ({ race }) => {
       className="border-2 rounded-lg w-[35rem] max-w-[95dvw] overflow-hidden"
       style={{ borderColor: defineBorder() }}
     >
-      <header className="flex justify-between items-center w-full p-4 gap-2">
-        <Image
-          src={`https://flagicons.lipis.dev/flags/4x3/${formattedCountry}.svg`}
-          width={50}
-          height={60}
-          alt={`${country} flag`}
-          className="rounded-md"
-        />
-        <button
-          aria-expanded={isOpen}
-          onClick={toggleAccordion}
-          className="w-full flex justify-between text-gray-800 font-semibold focus:outline-none text-xl"
-        >
-          <h1 className="">{race.raceName}</h1>
-          <span>{isOpen ? "-" : "+"}</span>
-        </button>
-      </header>
+      <button
+        aria-expanded={isOpen}
+        onClick={toggleAccordion}
+        className="w-full flex justify-between text-gray-800 font-semibold focus:outline-none"
+      >
+        <header className="flex justify-between items-center w-full p-4 gap-2">
+          <Image
+            src={`https://flagicons.lipis.dev/flags/4x3/${formattedCountry}.svg`}
+            width={50}
+            height={60}
+            alt={`${country} flag`}
+            className="rounded-md"
+          />
+          <h1 className="text-xl">{race.raceName}</h1>
+          <h1 className="text-lg hidden md:block">{formatDate(race.date, "MMM/dd/yyyy")}</h1>
+          <span className="text-xl">{isOpen ? "-" : "+"}</span>
+        </header>
+      </button>
       {isOpen && (
-        <article className="flex flex-col p-4 text-gray-700 bg-gray-950 text-gray-300 font-medium gap-2">
-          <section className="flex justify-between items-center w-full text-lg">
+        <article className="flex flex-col p-4 bg-gray-950 font-medium gap-2">
+          <section className="flex flex-wrap justify-between items-center w-full text-lg">
             <h2>{race.Circuit.circuitName}</h2>
-            <div className="flex gap-1">
+            <div className="flex gap-1 text-gray-400">
               <h2 className="">{race.Circuit.Location.locality}, </h2>
               <h2>{race.Circuit.Location.country}</h2>
             </div>

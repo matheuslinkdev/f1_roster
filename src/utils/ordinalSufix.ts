@@ -1,14 +1,15 @@
 export default function ordinalSufixByPosition(position: number | string) {
+  const posStr = String(position);
 
-  if (position === "1" || position === "21") {
-    return `${position}st`;
-  } else if (position === "2" || position === "22") {
-    return `${position}nd`;
-  } else if (position === "3" || position === "23") {
-    return `${position}rd`;
-  } else if (position === "NC") {
+  if (posStr === "1" || posStr === "21") {
+    return `${posStr}st`;
+  } else if (posStr === "2" || posStr === "22") {
+    return `${posStr}nd`;
+  } else if (posStr === "3" || posStr === "23") {
+    return `${posStr}rd`;
+  } else if (posStr === "NC") {
     return "NC";
   } else {
-    return `${position}th`;
+    return `${posStr}th`;
   }
 }

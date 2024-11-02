@@ -1,11 +1,10 @@
 "use client";
 
 import Dropdown from "@/components/fragments/NavDropdown";
-import { formulaOneLinks, formulaTwoLinks } from "@/data/links";
+import { formulaOneLinks } from "@/data/links";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import axios from "axios"
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +12,7 @@ const NavBar = () => {
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <Image
             src="/images/f1roster.png"
             height={54}
@@ -23,7 +22,7 @@ const NavBar = () => {
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             F1 Roster
           </span>
-        </a>
+        </Link>
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           type="button"
@@ -65,7 +64,6 @@ const NavBar = () => {
               </Link>
             </li>
             <Dropdown title="Formula 1" links={formulaOneLinks} />
-            <Dropdown title="Formula 2" links={formulaTwoLinks} />
           </ul>
         </div>
       </div>

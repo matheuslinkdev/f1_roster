@@ -31,13 +31,13 @@ const Dropdown = ({ title, links }) => {
         </svg>
       </button>
       {isDropdownOpen && (
-        <div className="absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 mt-6">
+        <div className="absolute z-10 bg-gray-900 divide-y divide-gray-100 rounded-lg shadow w-44 mt-6 md:right-2">
           <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
             {links.map((link, index) => (
               <li key={index}>
                 <Link
                   href={link.href}
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-2 hover:bg-gray-800"
                 >
                   {link.name}
                 </Link>

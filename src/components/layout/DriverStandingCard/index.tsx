@@ -23,9 +23,10 @@ const DriverStandingCard = ({ driver }: Props) => {
         />
         <section className="flex flex-col gap-1 ml-2 mt-2 md:mt-0 justify-center items-start">
           <div className="flex items-baseline gap-1">
-            <h1 className="text-lg font-medium">
-              {ordinalSufix(driver.position)} -{" "}
+            <h1 className="text-2xl md:text-lg font-medium absolute md:relative top-0 left-2 md:left-0">
+              {ordinalSufix(driver.position)}
             </h1>
+            <span className="text-lg hidden md:block">-</span>
             <span className="text-lg">{driver.first_name}</span>
             <h3 className="uppercase font-semibold text-xl">
               {driver.last_name}

@@ -2,6 +2,7 @@ import { GetSchedule } from '@/api/FetchF1Data';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 import React from 'react'
 import ScheduleData from './scheduleData';
+import RaceStatus from '@/components/fragments/RaceStatus';
 
 const F1Schedule = async () => {
 
@@ -19,9 +20,10 @@ const F1Schedule = async () => {
   return (
     <>
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <main className="flex flex-col w-full min-h-screen">
-          <article className="flex flex-col gap-4 mt-4">
-            <h1 className="text-3xl">Race Status</h1>
+        <main className="flex flex-col w-full min-h-screen p-8 gap-6">
+          <article className="flex flex-col gap-4">
+            <h1 className="text-3xl">Formula 1 2024 Schedule</h1>
+            <RaceStatus />
           </article>
           <article className="flex flex-col gap-6">
             <ScheduleData />

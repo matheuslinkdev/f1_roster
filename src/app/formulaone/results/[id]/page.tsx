@@ -84,7 +84,7 @@ const RaceResultsData = () => {
                       <h2>{driver.Driver.givenName} </h2>
                       <h2 className="uppercase">{driver.Driver.familyName} </h2>
                     </div>
-                    <h2 className="uppercase font-bold ml-1 text-2xl">
+                    <h2 className="uppercase font-bold ml-1 text-2xl hidden md:block">
                       {driver.number}{" "}
                     </h2>
                   </div>

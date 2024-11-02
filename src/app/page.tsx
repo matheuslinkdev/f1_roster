@@ -3,6 +3,7 @@
 import { GetResults } from "@/api/FetchF1Data";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { formulaOneLinks } from "@/data/links";
 
 
 export default function Home () {
@@ -17,16 +18,15 @@ export default function Home () {
             Here you can find the latest infos about Formula One and Formula Two
             season
           </p>
-          <section className="font-medium flex gap-4 text-lg mt-6 flex-wrap">
-            <Link href="/formulaone" className="w-36 text-center py-2 px-4 rounded-full bg-gradient-to-r from-blood-600 to-blood-800">
-              Formula 1
-            </Link>
-            <Link href="/formulatwo" className="w-36 text-center py-2 px-4 rounded-full bg-gradient-to-r from-marine-600 to-marine-800">
-              Formula 2
-            </Link>
-            <Link href="/formulaacademy" className="w-36 text-center py-2 px-4 rounded-full bg-gradient-to-r from-red-violet-800 to-marine-700">
-              F1 Academy
-            </Link>
+          <section className="font-medium flex flex-col md:flex-row gap-4 text-lg mt-6 flex-wrap">
+            
+             {formulaOneLinks.map((link, index)=>{
+              return(
+                <Link href={link.href} className="text-center py-2 bg-gray-800 px-4 rounded-full hover:bg-gray-700 transition-default" key={index}>
+                  {link.name}
+                </Link>
+              )
+             })}
           </section>
         </section>
       </article>
