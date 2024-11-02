@@ -1,21 +1,21 @@
 export const mainLinks = [
-    {
-        name: "Formula 1",
-        href: "/formulaone"
-    },
-    {
-        name: "Formula 2",
-        href: "/formulatwo"
-    },
-    {
-        name: "Formula 3",
-        href: "/formulathree"
-    },
-    {
-        name: "Formula Academy",
-        href: "/formulaacademy"
-    }
-]
+  {
+    name: "Formula 1",
+    href: "/formulaone",
+  },
+  {
+    name: "Formula 2",
+    href: "/formulatwo",
+  },
+  {
+    name: "Formula 3",
+    href: "/formulathree",
+  },
+  {
+    name: "Formula Academy",
+    href: "/formulaacademy",
+  },
+];
 
 export const formulaOneLinks = [
   {
@@ -45,12 +45,12 @@ export const formulaOneLinks = [
 ];
 
 export const formulaTwoLinks = [
-    {
-        name: "Drivers",
-        href: "/formulatwo/drivers"
-    },
-    {
-        name: "Standings",
-        href: "/formulatwo/standings"
-    }
-]
+  {
+    name: "Drivers",
+    href: "/formulatwo/drivers",
+  },
+  {
+    name: "Standings",
+    href: "/formulatwo/standings",
+  },
+];

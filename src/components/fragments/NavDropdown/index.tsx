@@ -1,10 +1,15 @@
-"use client"
+"use client";
 
+import { LinkProps } from "@/types/linkProps";
 import Link from "next/link";
 import React, { useState } from "react";
 
+type Props = {
+  title: string;
+  links: LinkProps[];
+};
 
-const Dropdown = ({ title, links }) => {
+const Dropdown = ({ title, links }: Props) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
@@ -33,8 +38,8 @@ const Dropdown = ({ title, links }) => {
       {isDropdownOpen && (
         <div className="absolute z-10 bg-gray-900 divide-y divide-gray-100 rounded-lg shadow w-44 mt-6 md:right-2">
           <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
-            {links.map((link, index) => (
-              <li key={index}>
+            {links.map((link) => (
+              <li key={link.href}>
                 <Link
                   href={link.href}
                   className="block px-4 py-2 hover:bg-gray-800"

@@ -1,8 +1,13 @@
+import { StandingConstructorProps } from "@/types/f1Types";
 import ordinalSufixByPosition from "@/utils/ordinalSufix";
 import Image from "next/image";
 import React from "react";
 
-const ConstructorStandingCard = ({ team }) => {
+type Props = {
+  team: StandingConstructorProps;
+};
+
+const ConstructorStandingCard = ({ team }: Props) => {
   return (
     <article className="flex flex-col w-[35rem] max-w-[95dvw] flex-wrap bg-gray-700 rounded-md overflow-hidden hover:bg-gray-800 transition-default">
       <header className=" flex  border-b-2 border-b-white items-center justify-between pl-2 text-xl font-medium">

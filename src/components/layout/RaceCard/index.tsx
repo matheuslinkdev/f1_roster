@@ -6,9 +6,10 @@ import { formatDate } from "date-fns";
 import Image from "next/image";
 import React, { useState } from "react";
 
-const date = new Date
-const today = formatDate(date, "MM/dd/yyyy")
+const date = new Date();
+const today = formatDate(date, "MM/dd/yyyy");
 
+// @ts-expect-error same as others, need to define the race props
 const RaceCard = ({ race }) => {
   const firstPractice = race.FirstPractice;
   const secondPractice = race.SecondPractice;
@@ -17,9 +18,9 @@ const RaceCard = ({ race }) => {
   const sprintRace = race.Sprint;
   const country = race.Circuit.Location.country;
 
-  const formattedCountry = getCountryCode(country)
-  
-  const formattedRaceDay = formatDate(race.date, "MM/dd/yyyy")
+  const formattedCountry = getCountryCode(country);
+
+  const formattedRaceDay = formatDate(race.date, "MM/dd/yyyy");
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,14 +28,14 @@ const RaceCard = ({ race }) => {
     setIsOpen(!isOpen);
   };
 
-  const isPast = formattedRaceDay < today
-  const isToday = formattedRaceDay === today
+  const isPast = formattedRaceDay < today;
+  const isToday = formattedRaceDay === today;
 
-  const defineBorder = ()=>{
-    if (isPast) return "red"
-    else if (isToday) return "green"
-    else return "yellow"  
-  }
+  const defineBorder = () => {
+    if (isPast) return "red";
+    else if (isToday) return "green";
+    else return "yellow";
+  };
 
   return (
     <section
@@ -55,7 +56,9 @@ const RaceCard = ({ race }) => {
             className="rounded-md"
           />
           <h1 className="text-xl">{race.raceName}</h1>
-          <h1 className="text-lg hidden md:block">{formatDate(race.date, "MMM/dd/yyyy")}</h1>
+          <h1 className="text-lg hidden md:block">
+            {formatDate(race.date, "MMM/dd/yyyy")}
+          </h1>
           <span className="text-xl">{isOpen ? "-" : "+"}</span>
         </header>
       </button>

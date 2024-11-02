@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const RaceStatus = () => {
   return (
@@ -11,6 +11,6 @@ const RaceStatus = () => {
       </span>
     </section>
   );
-}
+};
 
-export default RaceStatus
+export default RaceStatus;

@@ -60,6 +60,7 @@ export const countryNameCodeMapping = {
 export const getCountryCode = (countryName: string) => {
   for (const country in countryNameCodeMapping) {
     if (country === countryName) {
+      // @ts-expect-error some index error
       return countryNameCodeMapping[country].toLowerCase();
     }
   }

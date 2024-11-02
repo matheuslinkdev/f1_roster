@@ -1,13 +1,7 @@
-"use client"
-
-import { GetResults } from "@/api/FetchF1Data";
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { formulaOneLinks } from "@/data/links";
 
-
-export default function Home () {
-
+export default function Home() {
   return (
     <main className="flex relative w-full min-h-screen bg-[url('/images/f1-australia.webp')] bg-cover bg-center">
       <article className="flex flex-col items-start justify-center w-full min-h-screen ">
@@ -19,14 +13,17 @@ export default function Home () {
             season
           </p>
           <section className="font-medium flex flex-col md:flex-row gap-4 text-lg mt-6 flex-wrap">
-            
-             {formulaOneLinks.map((link, index)=>{
-              return(
-                <Link href={link.href} className="text-center py-2 bg-gray-800 px-4 rounded-full hover:bg-gray-700 transition-default" key={index}>
+            {formulaOneLinks.map((link, index) => {
+              return (
+                <Link
+                  href={link.href}
+                  className="text-center py-2 bg-gray-800 px-4 rounded-full hover:bg-gray-700 transition-default"
+                  key={index}
+                >
                   {link.name}
                 </Link>
-              )
-             })}
+              );
+            })}
           </section>
         </section>
       </article>

@@ -1,4 +1,3 @@
-import { GetConstructorStandings } from '@/api/FetchF1Data'
 import React from 'react'
 import ConstructorsStandingsData from './standings';
 

@@ -21,6 +21,7 @@ export default function ScheduleData() {
 
   return (
     <>
+    {/* @ts-expect-error i need to create the types of races */}
       {data.map((race, index) => (
         <RaceCard race={race} key={index} />
       ))}

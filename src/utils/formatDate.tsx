@@ -1,7 +1,6 @@
 import { formatInTimeZone } from "date-fns-tz";
-import { format } from "date-fns";
 
-export function formatRaceDate(date, time) {
+export function formatRaceDate(date: string, time: string) {
   if (!date || !time) return "";
 
   const dateTime = new Date(`${date}T${time}`);

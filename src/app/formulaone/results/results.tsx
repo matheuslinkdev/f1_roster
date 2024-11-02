@@ -2,7 +2,6 @@
 
 import { GetSchedule } from "@/api/FetchF1Data";
 import { getCountryCode } from "@/utils/countryFlag";
-import { formatRaceDate } from "@/utils/formatDate";
 import { useQuery } from "@tanstack/react-query";
 import { formatDate } from "date-fns";
 import Image from "next/image";
@@ -26,6 +25,7 @@ export default function F1Results() {
 
   return (
     <article className="flex flex-col gap-6 p-8">
+      {/* @ts-expect-error some confuse types, i will fix it soon as possible */}
       {data.map((race, index) => {
         const formattedRaceDay = formatDate(race.date, "MM/dd/yyyy");
         const isPast = formattedRaceDay < today;

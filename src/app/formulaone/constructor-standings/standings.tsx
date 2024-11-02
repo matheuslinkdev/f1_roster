@@ -1,8 +1,8 @@
 "use client";
 
-import { GetConstructors, GetConstructorStandings } from "@/api/FetchF1Data";
-import F1TeamCard from "@/components/layout/TeamCard";
+import { GetConstructorStandings } from "@/api/FetchF1Data";
 import ConstructorStandingCard from "@/components/layout/TeamStandingCard";
+import { StandingConstructorProps } from "@/types/f1Types";
 import { useQuery } from "@tanstack/react-query";
 
 export default function ConstructorsStandingsData() {
@@ -20,8 +20,8 @@ export default function ConstructorsStandingsData() {
 
   return (
     <>
-      {data.map((constructor, index) => (
-        <ConstructorStandingCard team={constructor} key={index} />
+      {data.map((constructor: StandingConstructorProps) => (
+        <ConstructorStandingCard team={constructor} key={constructor.name} />
       ))}
     </>
   );

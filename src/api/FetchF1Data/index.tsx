@@ -28,7 +28,7 @@ export const GetSchedule = async () => {
   return res.data
 };
 
-export const GetResults = async (index) => {
+export const GetResults = async (index: number) => {
   const res = await axios.get(`https://ergast.com/api/f1/current/${index}/results.json`)
   return res.data.MRData.RaceTable.Races[0]
 };
