@@ -1,7 +1,7 @@
 export const mainLinks = [
   {
     name: "Formula 1",
-    href: "/formulaone",
+    href: "/f1",
   },
   {
     name: "Formula 2",
@@ -20,27 +20,27 @@ export const mainLinks = [
 export const formulaOneLinks = [
   {
     name: "Driver Standings",
-    href: "/formulaone/driver-standings",
+    href: "/f1/driver-standings",
   },
   {
     name: "Constructor Standings",
-    href: "/formulaone/constructor-standings",
+    href: "/f1/constructor-standings",
   },
   {
     name: "Drivers",
-    href: "/formulaone/drivers",
+    href: "/f1/drivers",
   },
   {
     name: "Constructors",
-    href: "/formulaone/constructors",
+    href: "/f1/constructors",
   },
   {
     name: "Results",
-    href: "/formulaone/results",
+    href: "/f1/results",
   },
   {
     name: "Schedule",
-    href: "/formulaone/schedule",
+    href: "/f1/schedule",
   },
 ];
 

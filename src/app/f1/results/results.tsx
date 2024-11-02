@@ -36,7 +36,7 @@ export default function F1Results() {
           return (
             <section key={index} className="flex">
               <Link
-                href={`/formulaone/results/${index + 1}`}
+                href={`/f1/results/${index + 1}`}
                 className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 w-[45rem] max-w-[90dvw] bg-gray-900 p-2 rounded-lg hover:bg-gray-800 transition-default"
               >
                 <Image
