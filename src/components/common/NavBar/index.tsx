@@ -14,7 +14,7 @@ const NavBar = () => {
       <article className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
           href="/"
-          className="flex items-center space-x-3 rtl:space-x-reverse"
+          className="flex items-center space-x-1 rtl:space-x-reverse"
         >
           <Image
             src="/images/f1roster.png"
@@ -62,11 +62,12 @@ const NavBar = () => {
                 href="/"
                 className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
                 aria-current="page"
+                onClick={()=> setIsMenuOpen(false)}
               >
                 Home
               </Link>
             </li>
-            <Dropdown title="Formula 1" links={formulaOneLinks} />
+            <Dropdown title="Formula 1" links={formulaOneLinks} setMenuOpen={setIsMenuOpen}/>
           </ul>
         </section>
       </article>

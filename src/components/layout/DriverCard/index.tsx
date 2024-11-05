@@ -10,7 +10,7 @@ type Props = {
 const DriverCard = ({ driver }: Props) => {
   return (
     <article
-      className="relative max-w-[95dvw] md:w-[35rem] flex items-center justify-between flex-col md:flex-row bg-gray-700 rounded-md overflow-hidden hover:scale-105 transition-default"
+      className="relative w-sm md:w-[35rem] flex items-center justify-between flex-col md:flex-row bg-gray-700 rounded-md overflow-hidden hover:scale-105 transition-default"
       style={{ border: defineBorderColor(driver.last_name) }}
     >
       <Image

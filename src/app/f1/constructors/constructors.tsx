@@ -2,12 +2,16 @@
 
 import { GetConstructors } from "@/api/FetchF1Data";
 import F1TeamCard from "@/components/layout/TeamCard";
+import Loading from "@/components/ui/feedback/loading";
 import { useQuery } from "@tanstack/react-query";
 
 export default function ConstructorsData() {
   const { data, error, isFetched } = useQuery({
     queryKey: ["f1constructors"],
-    queryFn: GetConstructors,
+    queryFn: async () => {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      return GetConstructors();
+    },
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
@@ -15,7 +19,7 @@ export default function ConstructorsData() {
   });
 
   if (error) return <h2>Error: {error.message}</h2>;
-  if (!isFetched) return <div>Loading...</div>;
+  if (!isFetched) return <Loading/>;
 
   const sortedConstructors = [...data].sort((a, b) => {
     if (a.name < b.name) return -1;

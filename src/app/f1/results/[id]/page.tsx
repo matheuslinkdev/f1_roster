@@ -1,6 +1,7 @@
 "use client";
 
 import { GetResults } from "@/api/FetchF1Data";
+import Loading from "@/components/ui/feedback/loading";
 import ordinalSufixByPosition from "@/utils/ordinalSufix";
 import { useQuery } from "@tanstack/react-query";
 import { formatDate } from "date-fns";
@@ -12,11 +13,14 @@ const RaceResultsData = () => {
 
   const { data, error, isLoading } = useQuery({
     queryKey: ["race-results"],
-    // @ts-expect-error some mismatch here
-    queryFn: () => GetResults(id),
+    queryFn: async () => {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // @ts-expect-error some mismatch here
+      return GetResults(id);
+    },
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loading/>;
   if (error) return <div>Error: {error.message}</div>;
 
   const formatPoints = (points: string) => {

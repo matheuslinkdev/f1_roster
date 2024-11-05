@@ -1,13 +1,13 @@
 import { formatInTimeZone } from "date-fns-tz";
 
-export function formatRaceDate(date: string, time: string) {
-  if (!date || !time) return "";
+export function formatRaceDate(date: string, time?: string) {
+  if (!date) return "";
 
-  const dateTime = new Date(`${date}T${time}`);
+  const dateTime = time ? new Date(`${date}T${time}`) : new Date(date);
 
   return formatInTimeZone(
     dateTime,
     Intl.DateTimeFormat().resolvedOptions().timeZone,
-    "MMM/dd/yyyy, HH:mm"
+    time ? "MMM/dd/yyyy, HH:mm" : "MMM/dd/yyyy"
   );
 }

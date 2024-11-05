@@ -10,16 +10,16 @@ type Props = {
 const DriverStandingCard = ({ driver }: Props) => {
   return (
     <article
-      className="relative max-w-[80dvw] md:w-[45rem] flex items-start md:items-center justify-between flex-col md:flex-row bg-gray-700 rounded-md overflow-hidden hover:scale-105 transition-default"
+      className="relative md:w-[45rem] flex items-start md:items-center justify-between flex-col md:flex-row bg-gray-700 rounded-md overflow-hidden hover:scale-105 transition-default"
       style={{ border: defineBorderColor(driver.last_name) }}
     >
       <section className="flex flex-wrap">
         <Image
           src={driver.driver_image}
-          width={120}
-          height={120}
+          width={150}
+          height={150}
           alt={`${driver.first_name} ${driver.last_name} image`}
-          className="bg-gray-800 px-2 flex-2 w-full h-auto md:w-28 md:h-auto"
+          className="bg-gray-800 px-2 flex-2 w-full h-auto w-sm md:w-28 md:h-auto"
         />
         <section className="flex flex-col gap-1 ml-2 mt-2 md:mt-0 justify-center items-start">
           <div className="flex items-baseline gap-1">

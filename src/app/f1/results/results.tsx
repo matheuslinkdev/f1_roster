@@ -1,7 +1,9 @@
 "use client";
 
 import { GetSchedule } from "@/api/FetchF1Data";
+import Loading from "@/components/ui/feedback/loading";
 import { getCountryCode } from "@/utils/countryFlag";
+import { formatRaceDate } from "@/utils/formatDate";
 import { useQuery } from "@tanstack/react-query";
 import { formatDate } from "date-fns";
 import Image from "next/image";
@@ -13,7 +15,10 @@ const today = formatDate(date, "MM/dd/yyyy");
 export default function F1Results() {
   const { data, error, isFetched } = useQuery({
     queryKey: ["schedule"],
-    queryFn: GetSchedule,
+    queryFn: async () => {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      return GetSchedule();
+    },
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
@@ -21,7 +26,7 @@ export default function F1Results() {
   });
 
   if (error) return <h2>Error: {error.message}</h2>;
-  if (!isFetched) return <div>Loading...</div>;
+  if (!isFetched) return <Loading />;
 
   return (
     <article className="flex flex-col gap-6 p-8">
@@ -55,7 +60,7 @@ export default function F1Results() {
                     </div>
                   </div>
 
-                  <h1>{formatDate(race.date, "MMM/dd/yyyy")}</h1>
+                  <h1>{formatRaceDate(race.date, race.time)}</h1>
                 </section>
                 <span className="text-2xl font-medium mb-1 text-blood-600">
                   +

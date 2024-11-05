@@ -9,7 +9,7 @@ const DriverStandings = async () => {
   const standings: DriverProps[] = await GetDrivers()
 
   return (
-    <main className="flex flex-col w-full min-h-screen">
+    <main className="flex flex-col w-full min-h-screen p-8">
       <article className="flex flex-col gap-4 mt-4">
         <h1 className="text-3xl">F1 2024 Driver Standings</h1>
         <DriversCurrentStatus />

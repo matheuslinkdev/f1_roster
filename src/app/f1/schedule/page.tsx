@@ -22,7 +22,7 @@ const F1Schedule = async () => {
       <HydrationBoundary state={dehydrate(queryClient)}>
         <main className="flex flex-col w-full min-h-screen p-8 gap-6">
           <article className="flex flex-col gap-4">
-            <h1 className="text-3xl">Formula 1 2024 Schedule</h1>
+            <h1 className="text-2xl md:text-3xl">Formula 1 2024 Schedule</h1>
             <RaceStatus />
           </article>
           <article className="flex flex-col gap-6">

@@ -57,7 +57,7 @@ const RaceCard = ({ race }) => {
           />
           <h1 className="text-xl">{race.raceName}</h1>
           <h1 className="text-lg hidden md:block">
-            {formatDate(race.date, "MMM/dd/yyyy")}
+            {formatRaceDate(race.date, race.time)}
           </h1>
           <span className="text-xl">{isOpen ? "-" : "+"}</span>
         </header>

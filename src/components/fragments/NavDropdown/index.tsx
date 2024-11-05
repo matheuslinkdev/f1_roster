@@ -2,14 +2,15 @@
 
 import { LinkProps } from "@/types/linkProps";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 
 type Props = {
   title: string;
   links: LinkProps[];
+  setMenuOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-const Dropdown = ({ title, links }: Props) => {
+const Dropdown = ({ title, links, setMenuOpen }: Props) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
@@ -36,13 +37,14 @@ const Dropdown = ({ title, links }: Props) => {
         </svg>
       </button>
       {isDropdownOpen && (
-        <div className="absolute z-10 bg-gray-900 divide-y divide-gray-100 rounded-lg shadow w-44 mt-6 md:right-2">
+        <div className="relative md:absolute z-10 bg-gray-900 divide-y divide-gray-100 rounded-lg shadow w-full md:w-44 mt-6 md:right-2">
           <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
             {links.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   className="block px-4 py-2 hover:bg-gray-800"
+                  onClick={() => [setIsDropdownOpen(false), setMenuOpen(false)]}
                 >
                   {link.name}
                 </Link>

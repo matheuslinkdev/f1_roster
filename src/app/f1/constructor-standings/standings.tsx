@@ -2,6 +2,7 @@
 
 import { GetConstructorStandings } from "@/api/FetchF1Data";
 import ConstructorStandingCard from "@/components/layout/TeamStandingCard";
+import Loading from "@/components/ui/feedback/loading";
 import { StandingConstructorProps } from "@/types/f1Types";
 import { useQuery } from "@tanstack/react-query";
 
@@ -16,7 +17,7 @@ export default function ConstructorsStandingsData() {
   });
 
   if (error) return <h2>Error: {error.message}</h2>;
-  if (!isFetched) return <div>Loading...</div>;
+  if (!isFetched) return <Loading/>;
 
   return (
     <>
